@@ -1,0 +1,53 @@
+[2024-11-27T21:29:05.591+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-27T21:29:05.625+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.fetch_openweathermap_data scheduled__2024-11-27T20:00:00+00:00 [queued]>
+[2024-11-27T21:29:05.633+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.fetch_openweathermap_data scheduled__2024-11-27T20:00:00+00:00 [queued]>
+[2024-11-27T21:29:05.634+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 4
+[2024-11-27T21:29:05.648+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_openweathermap_data> on 2024-11-27 20:00:00+00:00
+[2024-11-27T21:29:05.653+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'fetch_openweathermap_data', 'scheduled__2024-11-27T20:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmpp768dcfu']
+[2024-11-27T21:29:05.656+0000] {standard_task_runner.py:91} INFO - Job 9: Subtask fetch_openweathermap_data
+[2024-11-27T21:29:05.657+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1435) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-27T21:29:05.658+0000] {standard_task_runner.py:64} INFO - Started process 1436 to run task
+[2024-11-27T21:29:05.701+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.fetch_openweathermap_data scheduled__2024-11-27T20:00:00+00:00 [running]> on host cc9ad6cea7ef
+[2024-11-27T21:29:05.782+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='fetch_openweathermap_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-27T20:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-27T20:00:00+00:00'
+[2024-11-27T21:29:05.783+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-27T21:29:06.272+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=kafka:9093 <connecting> [IPv4 ('172.18.0.8', 9093)]>: connecting to kafka:9093 [('172.18.0.8', 9093) IPv4]
+[2024-11-27T21:29:06.274+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-11-27T21:29:06.275+0000] {conn.py:402} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=kafka:9093 <connecting> [IPv4 ('172.18.0.8', 9093)]> returned error 111. Disconnecting.
+[2024-11-27T21:29:06.276+0000] {conn.py:673} ERROR - <BrokerConnection node_id=bootstrap-0 host=kafka:9093 <connecting> [IPv4 ('172.18.0.8', 9093)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2024-11-27T21:29:06.324+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=kafka:9093 <connecting> [IPv4 ('172.18.0.8', 9093)]>: connecting to kafka:9093 [('172.18.0.8', 9093) IPv4]
+[2024-11-27T21:29:06.324+0000] {conn.py:402} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=kafka:9093 <connecting> [IPv4 ('172.18.0.8', 9093)]> returned error 111. Disconnecting.
+[2024-11-27T21:29:06.325+0000] {conn.py:673} ERROR - <BrokerConnection node_id=bootstrap-0 host=kafka:9093 <connecting> [IPv4 ('172.18.0.8', 9093)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2024-11-27T21:29:06.326+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-27T21:29:06.326+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/kafka_stream.py", line 29, in fetch_openweathermap_data
+    producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/kafka/producer/kafka.py", line 383, in __init__
+    client = self.config['kafka_client'](
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/kafka/client_async.py", line 234, in __init__
+    self.config['api_version'] = self.check_version(timeout=check_timeout)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/kafka/client_async.py", line 902, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+[2024-11-27T21:29:06.337+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=weather_data_kafka_dag, task_id=fetch_openweathermap_data, run_id=scheduled__2024-11-27T20:00:00+00:00, execution_date=20241127T200000, start_date=20241127T212905, end_date=20241127T212906
+[2024-11-27T21:29:06.359+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 9 for task fetch_openweathermap_data (NoBrokersAvailable; 1436)
+[2024-11-27T21:29:06.396+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-11-27T21:29:06.404+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
