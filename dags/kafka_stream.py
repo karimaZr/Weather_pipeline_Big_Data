@@ -16,7 +16,7 @@ default_args = {
 }
 
 # Configuration des API
-OPENWEATHER_API_KEY = '5228ee3a150af754ec138620204936eb'
+OPENWEATHER_API_KEY = 'your_key'
 OPENMETEO_API_URL = 'https://api.open-meteo.com/v1/forecast'
 OPENWEATHER_API_URL = 'http://api.openweathermap.org/data/2.5/weather'
 KAFKA_SERVER = 'broker:9092'  # Adresse de votre serveur Kafka
