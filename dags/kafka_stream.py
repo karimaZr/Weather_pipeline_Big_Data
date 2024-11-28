@@ -114,9 +114,6 @@ def read_from_kafka_and_store(topic_name, output_file):
         for message in consumer:
             records.append(message.value)  # Extract the message value (JSON object)
 
-            # Stop consuming after a fixed number of messages (or a time limit)
-            if len(records) >= 100:  # Example limit
-                break
 
         # Log the number of records consumed
         print(f"Consumed {len(records)} records from topic {topic_name}")
