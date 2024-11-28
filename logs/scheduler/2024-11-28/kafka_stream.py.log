@@ -5700,3 +5700,71 @@ SyntaxError: invalid decimal literal
 [2024-11-28T15:58:33.624+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:58:33.623+0000] {dag.py:3089} INFO - Sync 1 DAGs
 [2024-11-28T15:58:33.643+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:58:33.643+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 15:00:00+00:00, run_after=2024-11-28 16:00:00+00:00
 [2024-11-28T15:58:33.661+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.610 seconds
+[2024-11-28T15:59:03.848+0000] {processor.py:161} INFO - Started process (PID=15389) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:59:03.849+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:59:03.850+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:59:03.849+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:59:04.371+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:59:04.392+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:59:04.392+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T15:59:04.409+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:59:04.409+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 15:00:00+00:00, run_after=2024-11-28 16:00:00+00:00
+[2024-11-28T15:59:04.434+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.593 seconds
+[2024-11-28T15:59:36.188+0000] {processor.py:161} INFO - Started process (PID=15401) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:59:36.190+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:59:36.220+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:59:36.220+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:53:13.144+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:53:13.321+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:53:13.320+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T18:53:43.917+0000] {processor.py:161} INFO - Started process (PID=15419) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:53:43.919+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T18:53:43.922+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:53:43.921+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:53:45.179+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:53:45.231+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:53:45.230+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T18:53:45.283+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:53:45.282+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 18:00:00+00:00, run_after=2024-11-28 19:00:00+00:00
+[2024-11-28T18:53:45.343+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.438 seconds
+[2024-11-28T18:54:15.639+0000] {processor.py:161} INFO - Started process (PID=15440) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:54:15.642+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T18:54:15.646+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:54:15.645+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:54:17.243+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:54:17.316+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:54:17.315+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T18:54:17.380+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:54:17.380+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 18:00:00+00:00, run_after=2024-11-28 19:00:00+00:00
+[2024-11-28T18:54:17.426+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.808 seconds
+[2024-11-28T18:54:47.868+0000] {processor.py:161} INFO - Started process (PID=15457) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:54:47.871+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T18:54:47.873+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:54:47.872+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:54:48.902+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:54:48.936+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:54:48.936+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T18:54:48.979+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:54:48.979+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 18:00:00+00:00, run_after=2024-11-28 19:00:00+00:00
+[2024-11-28T18:54:49.029+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.174 seconds
+[2024-11-28T18:55:19.620+0000] {processor.py:161} INFO - Started process (PID=15473) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:55:19.624+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T18:55:19.631+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:55:19.628+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:55:20.789+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:55:20.847+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:55:20.846+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T18:55:20.939+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:55:20.938+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 18:00:00+00:00, run_after=2024-11-28 19:00:00+00:00
+[2024-11-28T18:55:20.982+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.392 seconds
+[2024-11-28T18:55:51.425+0000] {processor.py:161} INFO - Started process (PID=15489) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:55:51.428+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T18:55:51.430+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:55:51.429+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:55:52.875+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:55:52.931+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:55:52.929+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T18:55:52.974+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:55:52.973+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 18:00:00+00:00, run_after=2024-11-28 19:00:00+00:00
+[2024-11-28T18:55:53.023+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.612 seconds
+[2024-11-28T18:56:23.356+0000] {processor.py:161} INFO - Started process (PID=15511) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:56:23.358+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T18:56:23.360+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:56:23.359+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:56:24.635+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:56:24.672+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:56:24.671+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T18:56:24.710+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:56:24.709+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 18:00:00+00:00, run_after=2024-11-28 19:00:00+00:00
+[2024-11-28T18:56:24.745+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.404 seconds
+[2024-11-28T18:56:55.151+0000] {processor.py:161} INFO - Started process (PID=15536) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:56:55.154+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T18:56:55.157+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:56:55.156+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:56:56.469+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:56:56.531+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:56:56.530+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T18:56:56.580+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:56:56.579+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 18:00:00+00:00, run_after=2024-11-28 19:00:00+00:00
+[2024-11-28T18:56:56.626+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.491 seconds
+[2024-11-28T18:57:27.115+0000] {processor.py:161} INFO - Started process (PID=15564) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:57:27.119+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T18:57:27.122+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:57:27.121+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:57:28.270+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T18:57:28.312+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:57:28.311+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T18:57:28.365+0000] {logging_mixin.py:188} INFO - [2024-11-28T18:57:28.364+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 18:00:00+00:00, run_after=2024-11-28 19:00:00+00:00
+[2024-11-28T18:57:28.416+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.322 seconds
