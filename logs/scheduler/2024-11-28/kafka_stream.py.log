@@ -2594,3 +2594,10 @@ NameError: name 'Path' is not defined
 [2024-11-28T21:39:57.636+0000] {logging_mixin.py:188} INFO - [2024-11-28T21:39:57.634+0000] {dag.py:3089} INFO - Sync 1 DAGs
 [2024-11-28T21:39:57.718+0000] {logging_mixin.py:188} INFO - [2024-11-28T21:39:57.717+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 21:00:00+00:00, run_after=2024-11-28 22:00:00+00:00
 [2024-11-28T21:39:57.796+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.878 seconds
+[2024-11-28T21:40:43.668+0000] {processor.py:161} INFO - Started process (PID=1857) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T21:40:43.672+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T21:40:43.678+0000] {logging_mixin.py:188} INFO - [2024-11-28T21:40:43.677+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T21:40:45.087+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T21:40:45.156+0000] {logging_mixin.py:188} INFO - [2024-11-28T21:40:45.154+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T21:40:45.250+0000] {logging_mixin.py:188} INFO - [2024-11-28T21:40:45.249+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 21:00:00+00:00, run_after=2024-11-28 22:00:00+00:00
+[2024-11-28T21:40:45.312+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.676 seconds
