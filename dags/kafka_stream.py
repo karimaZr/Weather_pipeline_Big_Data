@@ -4,11 +4,12 @@ from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
 import requests
 import json
-from kafka import KafkaProducer
+from kafka import KafkaProducer, KafkaConsumer
 import time
 import logging
 import random
-from airflow.providers.docker.operators.docker import DockerOperator
+import pandas as pd
+from pathlib import Path
 
 # Arguments par défaut pour le DAG
 default_args = {
@@ -16,12 +17,11 @@ default_args = {
     'start_date': datetime(2023, 9, 3, 10, 00),  # Exemple de date de démarrage
     'retries': 3,
 }
-# Chemin du script Spark
-SPARK_SCRIPT_PATH = "./kafka_to_parquet.py"
-
+OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)  # Create directory if it doesn't exist
 
 # Configuration des API
-OPENWEATHER_API_KEY = '5228ee3a150af754ec138620204936eb'
+OPENWEATHER_API_KEY = '8167e2dfee0bd9f28f8eafbd9e355ad3'
 OPENMETEO_API_URL = 'https://api.open-meteo.com/v1/forecast'
 OPENWEATHER_API_URL = 'http://api.openweathermap.org/data/2.5/weather'
 KAFKA_SERVER = 'broker:9092'  # Adresse de votre serveur Kafka
@@ -137,6 +137,17 @@ def stream_data():
             except Exception as e:
                 logging.error(f"Erreur dans le processus de streaming des données pour {city['name']}: {e}")
                 continue
+def read_from_kafka_and_store(topic_name, output_file):
+        logging.error(f"Error reading from Kafka topic {topic_name}: {e}")
+
+
+def store_openweathermap_data():
+    """Reads from OpenWeatherMap Kafka topic and stores data in a Parquet file."""
+    read_from_kafka_and_store(KAFKA_TOPIC_OPENWEATHER, "openweathermap_data.parquet")
+
+def store_openmeteo_data():
+    """Reads from Open-Meteo Kafka topic and stores data in a Parquet file."""
+    read_from_kafka_and_store(KAFKA_TOPIC_OPENMETEO, "openmeteo_data.parquet")
 
 # Création du DAG dans Airflow
 with DAG(
@@ -151,23 +162,13 @@ with DAG(
         task_id='stream_data_from_apis',
         python_callable=stream_data
     )
-    
-    # Tâche pour exécuter le script Spark
-    spark_task = BashOperator(
-        task_id='run_spark_kafka_to_parquet',
-        bash_command="""
-            # Copier les fichiers nécessaires dans le conteneur spark-master
-            docker cp ./dependencies.zip spark-master:/dependencies.zip
-            docker cp ./kafka_to_parquet.py spark-master:/kafka_to_parquet.py
-        
-            # Exécuter le job Spark avec les fichiers copiés et les packages nécessaires
-            docker exec -it spark-master spark-submit \
-                --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1 \
-                --py-files /dependencies.zip \
-                /kafka_to_parquet.py
-        """,
+    store_openweathermap_task = PythonOperator(
+        task_id='store_openweathermap_data',
+        python_callable=store_openweathermap_data
     )
-
-
-    # Définition de la dépendance des tâches
-    streaming_task >> spark_task
+    store_openmeteo_task = PythonOperator(
+        task_id='store_openmeteo_data',
+        python_callable=store_openmeteo_data
+    )
+    # Exécution de la tâche
+    streaming_task >> [store_openweathermap_task, store_openmeteo_task]

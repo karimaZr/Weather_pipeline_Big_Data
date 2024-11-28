@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2024-11-28T00:00:01.042+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
 [2024-11-28T00:00:01.161+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-27T23:00:00+00:00 [queued]>
 [2024-11-28T00:00:01.185+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-27T23:00:00+00:00 [queued]>
@@ -444,6 +445,8 @@
 [2024-11-28T00:02:04.680+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
 [2024-11-28T00:02:04.695+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 [2024-11-28T00:07:31.258+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
 [2024-11-28T00:07:31.315+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-27T23:00:00+00:00 [queued]>
 [2024-11-28T00:07:31.329+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-27T23:00:00+00:00 [queued]>
@@ -1248,4 +1251,7 @@
 [2024-11-28T00:09:32.019+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
 [2024-11-28T00:09:32.032+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
 [2024-11-28T00:09:32.037+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958

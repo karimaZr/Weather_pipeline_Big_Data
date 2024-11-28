@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2024-11-28T00:00:17.053+0000] {processor.py:161} INFO - Started process (PID=5400) to work on /opt/airflow/dags/kafka_stream.py
 [2024-11-28T00:00:17.057+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T00:00:17.061+0000] {logging_mixin.py:188} INFO - [2024-11-28T00:00:17.059+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
@@ -1414,6 +1415,8 @@
 [2024-11-28T13:59:54.965+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:59:54.963+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:59:56.791+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:59:56.768+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 [2024-11-28T00:00:49.113+0000] {processor.py:161} INFO - Started process (PID=189) to work on /opt/airflow/dags/kafka_stream.py
 [2024-11-28T00:00:49.114+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T00:00:49.118+0000] {logging_mixin.py:188} INFO - [2024-11-28T00:00:49.117+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
@@ -1967,12 +1970,16 @@
 [2024-11-28T13:11:18.692+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:11:18.694+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:11:18.694+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:11:18.912+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:11:18.904+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('morocco_cities.csv')
@@ -2000,6 +2007,8 @@ FileNotFoundError: [Errno 2] No such file or directory: 'morocco_cities.csv'
 [2024-11-28T14:00:27.382+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:00:27.379+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:00:29.522+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:00:29.499+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2010,12 +2019,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:11:49.277+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:11:49.287+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:11:49.281+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:11:49.543+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:11:49.537+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('morocco_cities.csv')
@@ -2043,6 +2056,8 @@ FileNotFoundError: [Errno 2] No such file or directory: 'morocco_cities.csv'
 [2024-11-28T14:00:46.325+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:00:46.324+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:00:47.280+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:00:47.271+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2053,12 +2068,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:12:06.430+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:12:06.437+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:12:06.431+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:12:06.650+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:12:06.643+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('morocco_cities.csv')
@@ -2086,6 +2105,8 @@ FileNotFoundError: [Errno 2] No such file or directory: 'morocco_cities.csv'
 [2024-11-28T14:01:17.829+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:01:17.828+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:01:18.428+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:01:18.419+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2096,12 +2117,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:12:11.495+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:12:11.497+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:12:11.496+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:12:11.692+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:12:11.686+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('morocco_cities.csv')
@@ -2129,6 +2154,8 @@ FileNotFoundError: [Errno 2] No such file or directory: 'morocco_cities.csv'
 [2024-11-28T14:01:48.884+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:01:48.883+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:01:49.626+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:01:49.614+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2139,12 +2166,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:12:21.857+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:12:21.858+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:12:21.858+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:12:22.131+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:12:22.111+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('morocco_cities.csv')
@@ -2172,6 +2203,8 @@ FileNotFoundError: [Errno 2] No such file or directory: 'morocco_cities.csv'
 [2024-11-28T14:02:20.233+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:02:20.231+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:02:21.808+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:02:21.784+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2182,12 +2215,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:12:50.108+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:12:50.111+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:12:50.110+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:12:50.416+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:12:50.407+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('morocco_cities.csv')
@@ -2215,6 +2252,8 @@ FileNotFoundError: [Errno 2] No such file or directory: 'morocco_cities.csv'
 [2024-11-28T14:02:52.417+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:02:52.416+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:02:53.438+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:02:53.423+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2241,12 +2280,16 @@ IndentationError: unexpected indent
 [2024-11-28T13:13:00.606+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:13:00.608+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:13:00.608+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:13:00.844+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:13:00.838+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('morocco_cities.csv')
@@ -2274,6 +2317,8 @@ FileNotFoundError: [Errno 2] No such file or directory: 'morocco_cities.csv'
 [2024-11-28T14:03:04.666+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:03:04.665+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:03:05.570+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:03:05.562+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2316,12 +2361,16 @@ IndentationError: unexpected indent
 [2024-11-28T13:13:17.951+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:13:17.954+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:13:17.953+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:13:18.150+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:13:18.144+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('cities.csv')
@@ -2349,6 +2398,8 @@ FileNotFoundError: [Errno 2] No such file or directory: 'cities.csv'
 [2024-11-28T14:03:23.955+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:03:23.953+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:03:25.520+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:03:25.512+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2359,12 +2410,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:13:19.048+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:13:19.050+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:13:19.049+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:13:19.441+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:13:19.422+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('./cities.csv')
@@ -2392,6 +2447,8 @@ FileNotFoundError: [Errno 2] No such file or directory: './cities.csv'
 [2024-11-28T14:03:56.112+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:03:56.110+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:03:57.691+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:03:57.668+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2402,12 +2459,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:13:49.747+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:13:49.748+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:13:49.748+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:13:49.954+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:13:49.947+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('./cities.csv')
@@ -2435,6 +2496,8 @@ FileNotFoundError: [Errno 2] No such file or directory: './cities.csv'
 [2024-11-28T14:04:28.272+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:04:28.271+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:04:29.280+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:04:29.265+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2445,12 +2508,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:14:20.204+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:14:20.206+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:14:20.205+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:14:20.432+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:14:20.426+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('./cities.csv')
@@ -2478,6 +2545,8 @@ FileNotFoundError: [Errno 2] No such file or directory: './cities.csv'
 [2024-11-28T14:04:31.374+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:04:31.372+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:04:32.403+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:04:32.393+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2488,12 +2557,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:14:50.732+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:14:50.734+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:14:50.733+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:14:50.972+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:14:50.965+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('./cities.csv')
@@ -2521,6 +2594,8 @@ FileNotFoundError: [Errno 2] No such file or directory: './cities.csv'
 [2024-11-28T14:05:02.915+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:05:02.914+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:05:03.831+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:05:03.817+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2531,12 +2606,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:15:21.273+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:15:21.275+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:15:21.274+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:15:21.545+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:15:21.538+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('./cities.csv')
@@ -2564,6 +2643,8 @@ FileNotFoundError: [Errno 2] No such file or directory: './cities.csv'
 [2024-11-28T14:05:34.251+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:05:34.250+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:05:35.002+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:05:34.994+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2574,12 +2655,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:15:51.820+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:15:51.822+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:15:51.821+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:15:52.096+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:15:52.088+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('./cities.csv')
@@ -2607,6 +2692,8 @@ FileNotFoundError: [Errno 2] No such file or directory: './cities.csv'
 [2024-11-28T14:06:05.588+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:06:05.587+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:06:06.443+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:06:06.432+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 17, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -2617,12 +2704,16 @@ NameError: name 'Path' is not defined
 [2024-11-28T13:16:16.045+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T13:16:16.047+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:16:16.046+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
 [2024-11-28T13:16:16.257+0000] {logging_mixin.py:188} INFO - [2024-11-28T13:16:16.250+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+=======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 Traceback (most recent call last):
   File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
     loader.exec_module(new_module)
   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+<<<<<<< HEAD
 <<<<<<< HEAD
   File "/opt/airflow/dags/kafka_stream.py", line 31, in <module>
     df_villes_maroc = pd.read_csv('./cities.csv')
@@ -4099,6 +4190,8 @@ ModuleNotFoundError: No module named 'cities'
 [2024-11-28T15:43:08.790+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:43:08.790+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 15:00:00+00:00, run_after=2024-11-28 16:00:00+00:00
 [2024-11-28T15:43:08.816+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.238 seconds
 =======
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
   File "/opt/airflow/dags/kafka_stream.py", line 18, in <module>
     OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as needed
                  ^^^^
@@ -5109,6 +5202,7 @@ NameError: name 'Path' is not defined
 [2024-11-28T14:32:22.993+0000] {processor.py:161} INFO - Started process (PID=2002) to work on /opt/airflow/dags/kafka_stream.py
 [2024-11-28T14:32:23.025+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-28T14:32:23.044+0000] {logging_mixin.py:188} INFO - [2024-11-28T14:32:23.028+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+<<<<<<< HEAD
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 [2024-11-28T15:43:32.837+0000] {processor.py:161} INFO - Started process (PID=15031) to work on /opt/airflow/dags/kafka_stream.py
 [2024-11-28T15:43:32.838+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
@@ -5481,3 +5575,128 @@ SyntaxError: invalid decimal literal
 [2024-11-28T15:54:01.483+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:54:01.483+0000] {dag.py:3089} INFO - Sync 1 DAGs
 [2024-11-28T15:54:01.506+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:54:01.505+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 15:00:00+00:00, run_after=2024-11-28 16:00:00+00:00
 [2024-11-28T15:54:01.532+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.225 seconds
+=======
+>>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+[2024-11-28T15:55:08.419+0000] {processor.py:161} INFO - Started process (PID=15293) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:55:08.420+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:55:08.421+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:55:08.421+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:55:08.438+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:55:08.437+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/kafka_stream.py", line 16
+    >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+                 ^
+SyntaxError: invalid decimal literal
+[2024-11-28T15:55:08.438+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:55:08.459+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.046 seconds
+[2024-11-28T15:55:38.744+0000] {processor.py:161} INFO - Started process (PID=15304) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:55:38.745+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:55:38.746+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:55:38.745+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:55:38.760+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:55:38.759+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/kafka_stream.py", line 16
+    >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+                 ^
+SyntaxError: invalid decimal literal
+[2024-11-28T15:55:38.760+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:55:38.785+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.047 seconds
+[2024-11-28T15:56:08.989+0000] {processor.py:161} INFO - Started process (PID=15315) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:56:08.990+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:56:08.991+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:56:08.990+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:56:09.010+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:56:09.009+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/kafka_stream.py", line 16
+    >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+                 ^
+SyntaxError: invalid decimal literal
+[2024-11-28T15:56:09.010+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:56:09.029+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.047 seconds
+[2024-11-28T15:56:39.298+0000] {processor.py:161} INFO - Started process (PID=15326) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:56:39.299+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:56:39.300+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:56:39.299+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:56:39.315+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:56:39.314+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/kafka_stream.py", line 16
+    >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+                 ^
+SyntaxError: invalid decimal literal
+[2024-11-28T15:56:39.315+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:56:39.341+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.048 seconds
+[2024-11-28T15:57:09.556+0000] {processor.py:161} INFO - Started process (PID=15337) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:57:09.558+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:57:09.559+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:57:09.558+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:57:09.574+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:57:09.573+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/kafka_stream.py", line 16
+    >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+                 ^
+SyntaxError: invalid decimal literal
+[2024-11-28T15:57:09.575+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:57:09.600+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.050 seconds
+[2024-11-28T15:57:39.820+0000] {processor.py:161} INFO - Started process (PID=15348) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:57:39.821+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:57:39.822+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:57:39.822+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:57:39.839+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:57:39.838+0000] {dagbag.py:355} ERROR - Failed to import: /opt/airflow/dags/kafka_stream.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 351, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1129, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1059, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/kafka_stream.py", line 16
+    >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
+                 ^
+SyntaxError: invalid decimal literal
+[2024-11-28T15:57:39.839+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:57:39.864+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.049 seconds
+[2024-11-28T15:57:57.058+0000] {processor.py:161} INFO - Started process (PID=15359) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:57:57.059+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:57:57.060+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:57:57.060+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:57:58.042+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:57:58.131+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:57:58.131+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T15:57:58.152+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:57:58.152+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 15:00:00+00:00, run_after=2024-11-28 16:00:00+00:00
+[2024-11-28T15:57:58.187+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 1.134 seconds
+[2024-11-28T15:58:02.110+0000] {processor.py:161} INFO - Started process (PID=15365) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:58:02.111+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:58:02.112+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:58:02.112+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:58:02.622+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:58:02.632+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:58:02.632+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T15:58:02.651+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:58:02.650+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 15:00:00+00:00, run_after=2024-11-28 16:00:00+00:00
+[2024-11-28T15:58:02.682+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.578 seconds
+[2024-11-28T15:58:33.059+0000] {processor.py:161} INFO - Started process (PID=15377) to work on /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:58:33.060+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
+[2024-11-28T15:58:33.061+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:58:33.061+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:58:33.600+0000] {processor.py:840} INFO - DAG(s) 'weather_data_kafka_dag' retrieved from /opt/airflow/dags/kafka_stream.py
+[2024-11-28T15:58:33.624+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:58:33.623+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2024-11-28T15:58:33.643+0000] {logging_mixin.py:188} INFO - [2024-11-28T15:58:33.643+0000] {dag.py:3947} INFO - Setting next_dagrun for weather_data_kafka_dag to 2024-11-28 15:00:00+00:00, run_after=2024-11-28 16:00:00+00:00
+[2024-11-28T15:58:33.661+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.610 seconds
