@@ -1,12 +1,14 @@
 from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 import requests
 import json
 from kafka import KafkaProducer
 import time
 import logging
 import random
+from airflow.providers.docker.operators.docker import DockerOperator
 
 # Arguments par défaut pour le DAG
 default_args = {
@@ -14,6 +16,9 @@ default_args = {
     'start_date': datetime(2023, 9, 3, 10, 00),  # Exemple de date de démarrage
     'retries': 3,
 }
+# Chemin du script Spark
+SPARK_SCRIPT_PATH = "./kafka_to_parquet.py"
+
 
 # Configuration des API
 OPENWEATHER_API_KEY = '5228ee3a150af754ec138620204936eb'
@@ -22,16 +27,56 @@ OPENWEATHER_API_URL = 'http://api.openweathermap.org/data/2.5/weather'
 KAFKA_SERVER = 'broker:9092'  # Adresse de votre serveur Kafka
 KAFKA_TOPIC_OPENWEATHER = 'openweathermap_raw'
 KAFKA_TOPIC_OPENMETEO = 'openmeteo_raw'
+# Liste des villes à traiter
+cities = [
+    {'name': 'Casablanca', 'latitude': 33.5945144, 'longitude': -7.6200284},
+    {'name': 'Rabat', 'latitude': 34.02236, 'longitude': -6.8340222},
+    {'name': 'Fès', 'latitude': 34.0346534, 'longitude': -5.0161926},
+    {'name': 'Marrakech', 'latitude': 31.6258257, 'longitude': -7.9891608},
+    {'name': 'Agadir', 'latitude': 30.4205162, 'longitude': -9.5838532},
+    {'name': 'Tanger', 'latitude': 35.7696302, 'longitude': -5.8033522},
+    {'name': 'Meknès', 'latitude': 33.8984131, 'longitude': -5.5321582},
+    {'name': 'Oujda', 'latitude': 34.677874, 'longitude': -1.929306},
+    {'name': 'Kenitra', 'latitude': 34.26457, 'longitude': -6.570169},
+    {'name': 'Tetouan', 'latitude': 35.570175, 'longitude': -5.3742776},
+    {'name': 'El Jadida', 'latitude': 33.22932285, 'longitude': -8.499356736652636},
+    {'name': 'Safi', 'latitude': 32.299424, 'longitude': -9.239533},
+    {'name': 'Beni Mellal', 'latitude': 32.334193, 'longitude': -6.353335},
+    {'name': 'Nador', 'latitude': 35.1739922, 'longitude': -2.9281198},
+    {'name': 'Taza', 'latitude': 34.230155, 'longitude': -4.010104},
+    {'name': 'Essaouira', 'latitude': 31.5118281, 'longitude': -9.7620903},
+    {'name': 'Khouribga', 'latitude': 32.8856482, 'longitude': -6.908798},
+    {'name': 'Settat', 'latitude': 33.002397, 'longitude': -7.619867},
+    {'name': 'Larache', 'latitude': 35.1952327, 'longitude': -6.152913},
+    {'name': 'Ksar El Kebir', 'latitude': 34.999218, 'longitude': -5.898724},
+    {'name': 'Taourirt', 'latitude': 34.413438, 'longitude': -2.893825},
+    {'name': 'Guercif', 'latitude': 34.225576, 'longitude': -3.352345},
+    {'name': 'Guelmim', 'latitude': 28.9863852, 'longitude': -10.0574351},
+    {'name': 'Dakhla', 'latitude': 23.6940663, 'longitude': -15.9431274},
+    {'name': 'Laayoune', 'latitude': 27.154512, 'longitude': -13.1953921},
+    {'name': 'Ifrane', 'latitude': 33.527605, 'longitude': -5.107408},
+    {'name': 'Azrou', 'latitude': 33.436117, 'longitude': -5.221913},
+    {'name': 'Errachidia', 'latitude': 31.929089, 'longitude': -4.4340807},
+    {'name': 'Ouarzazate', 'latitude': 30.920193, 'longitude': -6.910923},
+    {'name': 'Taroudant', 'latitude': 30.470651, 'longitude': -8.877922},
+    {'name': 'Chefchaouen', 'latitude': 35.1693724, 'longitude': -5.275765468193203},
+    {'name': 'Berkane', 'latitude': 34.9266755, 'longitude': -2.3294087},
+    {'name': 'Sidi Kacem', 'latitude': 34.226412, 'longitude': -5.711434},
+    {'name': 'Sidi Slimane', 'latitude': 34.259878, 'longitude': -5.927253},
+    {'name': 'Sidi Ifni', 'latitude': 29.3791253, 'longitude': -10.1715632},
+    {'name': 'Tiznit', 'latitude': 29.698624, 'longitude': -9.7312815},
+    {'name': 'Tan-Tan', 'latitude': 28.437553, 'longitude': -11.098664}
+]
 
-def fetch_openweathermap_data():
-    """Récupère les données depuis OpenWeatherMap API et les envoie dans Kafka."""
+def fetch_openweathermap_data(city):
+    """Récupère les données depuis OpenWeatherMap API pour une ville donnée et les envoie dans Kafka."""
     try:
         params = {
-            'q': 'Paris,fr',
+            'q': f"{city['name']},ma",  # Utiliser le nom de la ville dans la requête
             'appid': OPENWEATHER_API_KEY,
         }
         response = requests.get(OPENWEATHER_API_URL, params=params)
-        response.raise_for_status()  # Lève une exception pour une mauvaise réponse
+        response.raise_for_status()
 
         data = response.json()
 
@@ -39,20 +84,21 @@ def fetch_openweathermap_data():
         producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER,
                                  value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
+        # Envoi des données pour chaque ville
         producer.send(KAFKA_TOPIC_OPENWEATHER, value=data)
-        producer.flush()  # S'assure que les messages sont envoyés
-        print("Données envoyées à Kafka pour OpenWeatherMap.")
+        producer.flush()
+        print(f"Données envoyées à Kafka pour OpenWeatherMap - {city['name']}.")
 
     except Exception as e:
-        logging.error(f"Erreur lors de la récupération des données d'OpenWeatherMap: {e}")
+        logging.error(f"Erreur lors de la récupération des données d'OpenWeatherMap pour {city['name']}: {e}")
 
-def fetch_openmeteo_data():
-    """Récupère les données depuis Open-Meteo API et les envoie dans Kafka."""
+def fetch_openmeteo_data(city):
+    """Récupère les données depuis Open-Meteo API pour une ville donnée et les envoie dans Kafka."""
     try:
         params = {
-            'latitude': 48.8566,  # Paris
-            'longitude': 2.3522,
-            'hourly': 'temperature_2m',
+            'latitude': city['latitude'],
+            'longitude': city['longitude'],
+            "hourly": "temperature_2m,precipitation,cloudcover",
         }
         response = requests.get(OPENMETEO_API_URL, params=params)
         response.raise_for_status()
@@ -63,40 +109,40 @@ def fetch_openmeteo_data():
         producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER,
                                  value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
+        # Envoi des données pour chaque ville
         producer.send(KAFKA_TOPIC_OPENMETEO, value=data)
         producer.flush()
-        print("Données envoyées à Kafka pour Open-Meteo.")
+        print(f"Données envoyées à Kafka pour Open-Meteo - {city['name']}.")
 
     except Exception as e:
-        logging.error(f"Erreur lors de la récupération des données d'Open-Meteo: {e}")
-
+        logging.error(f"Erreur lors de la récupération des données d'Open-Meteo pour {city['name']}: {e}")
 
 def stream_data():
-    """Récupère les données de plusieurs API et les envoie dans Kafka."""
+    """Récupère les données de plusieurs API pour plusieurs villes et les envoie dans Kafka."""
     producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER, max_block_ms=5000)
     curr_time = time.time()
 
     # Envoi de données pendant 2 minutes
-    while time.time() < curr_time + 120:
-        try:
-            # Appel à OpenWeatherMap et Open-Meteo
-            fetch_openweathermap_data()
-            fetch_openmeteo_data()
+    while time.time() < curr_time + 180:
+        for city in cities:
+            try:
+                # Appel à OpenWeatherMap et Open-Meteo pour chaque ville
+                fetch_openweathermap_data(city)
+                fetch_openmeteo_data(city)
 
-            # Simulation d'un délai entre chaque envoi de données
-            sleep_duration = random.uniform(0.5, 2.0)
-            time.sleep(sleep_duration)
+                # Simulation d'un délai entre chaque envoi de données
+                sleep_duration = random.uniform(0.5, 2.0)
+                time.sleep(sleep_duration)
 
-        except Exception as e:
-            logging.error(f"Erreur dans le processus de streaming des données: {e}")
-            continue
-
+            except Exception as e:
+                logging.error(f"Erreur dans le processus de streaming des données pour {city['name']}: {e}")
+                continue
 
 # Création du DAG dans Airflow
 with DAG(
     'weather_data_kafka_dag',
     default_args=default_args,
-    schedule_interval='@hourly',  # Exécution chaque heure     schedule_interval='*/10 * * * *',  # Exécution toutes les 10 minutes
+    schedule_interval='@hourly',  # Exécution chaque heure
     catchup=False
 ) as dag:
 
@@ -105,6 +151,23 @@ with DAG(
         task_id='stream_data_from_apis',
         python_callable=stream_data
     )
+    
+    # Tâche pour exécuter le script Spark
+    spark_task = BashOperator(
+        task_id='run_spark_kafka_to_parquet',
+        bash_command="""
+            # Copier les fichiers nécessaires dans le conteneur spark-master
+            docker cp ./dependencies.zip spark-master:/dependencies.zip
+            docker cp ./kafka_to_parquet.py spark-master:/kafka_to_parquet.py
+        
+            # Exécuter le job Spark avec les fichiers copiés et les packages nécessaires
+            docker exec -it spark-master spark-submit \
+                --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1 \
+                --py-files /dependencies.zip \
+                /kafka_to_parquet.py
+        """,
+    )
 
-    # Exécution de la tâche
-    streaming_task
+
+    # Définition de la dépendance des tâches
+    streaming_task >> spark_task
