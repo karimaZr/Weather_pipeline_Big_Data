@@ -263,6 +263,7 @@ services:
     working_dir: /app
     volumes:
       - ./streamlit:/app
+      - ${AIRFLOW_PROJ_DIR:-.}/airflow/data:/opt/airflow/data
     command: bash -c "pip install -r requirements.txt && streamlit run app.py"
     networks:
       - streamsnet
