@@ -12,6 +12,7 @@ import pandas as pd
 from pathlib import Path
 import pandas as pd
 from pathlib import Path
+import os
 
 # Arguments par défaut pour le DAG
 default_args = {
@@ -72,12 +73,15 @@ cities = [
     {'name': 'Tan-Tan', 'latitude': 28.437553, 'longitude': -11.098664}
 ]
 
+
 def fetch_openweathermap_data(city):
     """Récupère les données depuis OpenWeatherMap API pour une ville donnée et les envoie dans Kafka."""
     try:
+        
         params = {
-            'q': f"{city['name']},ma",  # Utiliser le nom de la ville dans la requête
+            'q': f"{city['name']},ma",  
             'appid': OPENWEATHER_API_KEY,
+            'units': 'metric'
         }
         response = requests.get(OPENWEATHER_API_URL, params=params)
         response.raise_for_status()
@@ -99,10 +103,11 @@ def fetch_openweathermap_data(city):
 def fetch_openmeteo_data(city):
     """Récupère les données depuis Open-Meteo API pour une ville donnée et les envoie dans Kafka."""
     try:
+
         params = {
             'latitude': city['latitude'],
             'longitude': city['longitude'],
-            "hourly": "temperature_2m,precipitation,cloudcover",
+            "current": "temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,pressure_msl,surface_pressure",
         }
         response = requests.get(OPENMETEO_API_URL, params=params)
         response.raise_for_status()
@@ -126,25 +131,21 @@ def stream_data():
     producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER, max_block_ms=5000)
     curr_time = time.time()
 
-    # Envoi de données pendant 2 minutes
-    while time.time() < curr_time + 180:
-        for city in cities:
-            try:
-                # Appel à OpenWeatherMap et Open-Meteo pour chaque ville
-                fetch_openweathermap_data(city)
-                fetch_openmeteo_data(city)
 
-                # Simulation d'un délai entre chaque envoi de données
-                sleep_duration = random.uniform(0.5, 2.0)
-                time.sleep(sleep_duration)
-
+    for city in cities:
+        try:
+            # Appel à OpenWeatherMap et Open-Meteo pour chaque ville
+            fetch_openweathermap_data(city)
+            fetch_openmeteo_data(city)
         except Exception as e:
             logging.error(f"Erreur dans le processus de streaming des données: {e}")
             continue
     
+
 def read_from_kafka_and_store(topic_name, output_file):
     """
     Reads messages from a Kafka topic and stores them in a Parquet file.
+    If the file already exists, it will be deleted before writing the new records.
     """
     try:
         # Initialize Kafka Consumer
@@ -160,6 +161,9 @@ def read_from_kafka_and_store(topic_name, output_file):
         for message in consumer:
             records.append(message.value)  # Extract the message value (JSON object)
 
+            # Stop consuming after a fixed number of messages (or a time limit)
+            if len(records) >= 100:  # Example limit
+                break
 
         # Log the number of records consumed
         print(f"Consumed {len(records)} records from topic {topic_name}")
@@ -171,6 +175,13 @@ def read_from_kafka_and_store(topic_name, output_file):
             # Ensure the DataFrame is not empty before saving
             if not df.empty:
                 output_path = OUTPUT_DIR / output_file
+
+                # Delete the existing file if it exists
+                if os.path.exists(output_path):
+                    os.remove(output_path)
+                    print(f"Deleted existing file at {output_path}")
+
+                # Write the new records to the file
                 df.to_parquet(output_path, index=False)
                 print(f"Data from {topic_name} stored in {output_path}")
             else:
@@ -180,7 +191,6 @@ def read_from_kafka_and_store(topic_name, output_file):
 
     except Exception as e:
         logging.error(f"Error reading from Kafka topic {topic_name}: {e}")
-
 
 def store_openweathermap_data():
     """Reads from OpenWeatherMap Kafka topic and stores data in a Parquet file."""
