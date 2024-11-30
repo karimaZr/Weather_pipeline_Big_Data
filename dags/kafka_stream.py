@@ -20,7 +20,7 @@ OUTPUT_DIR = Path("/opt/airflow/data/parquet_files")  # Update the path as neede
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)  # Create directory if it doesn't exist
 
 # Configuration des API
-OPENWEATHER_API_KEY = '9a9d136898d1ab286f37101b7248c88a'
+OPENWEATHER_API_KEY = '8167e2dfee0bd9f28f8eafbd9e355ad3'
 OPENMETEO_API_URL = 'https://api.open-meteo.com/v1/forecast'
 OPENWEATHER_API_URL = 'http://api.openweathermap.org/data/2.5/weather'
 KAFKA_SERVER = 'broker:9092'  # Adresse de votre serveur Kafka
