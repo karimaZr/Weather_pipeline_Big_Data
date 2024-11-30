@@ -1,0 +1,39 @@
+[2024-11-28T00:17:13.319+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-28T00:17:13.395+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.run_spark_kafka_to_parquet scheduled__2024-11-27T23:00:00+00:00 [queued]>
+[2024-11-28T00:17:13.416+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.run_spark_kafka_to_parquet scheduled__2024-11-27T23:00:00+00:00 [queued]>
+[2024-11-28T00:17:13.418+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 4
+[2024-11-28T00:17:13.452+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_spark_kafka_to_parquet> on 2024-11-27 23:00:00+00:00
+[2024-11-28T00:17:13.465+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'run_spark_kafka_to_parquet', 'scheduled__2024-11-27T23:00:00+00:00', '--job-id', '49', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmpex99u4o8']
+[2024-11-28T00:17:13.469+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=5998) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-28T00:17:13.470+0000] {standard_task_runner.py:91} INFO - Job 49: Subtask run_spark_kafka_to_parquet
+[2024-11-28T00:17:13.471+0000] {standard_task_runner.py:64} INFO - Started process 6001 to run task
+[2024-11-28T00:17:13.561+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.run_spark_kafka_to_parquet scheduled__2024-11-27T23:00:00+00:00 [running]> on host cc9ad6cea7ef
+[2024-11-28T00:17:13.729+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='run_spark_kafka_to_parquet' AIRFLOW_CTX_EXECUTION_DATE='2024-11-27T23:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-27T23:00:00+00:00'
+[2024-11-28T00:17:13.731+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-28T00:17:13.759+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-11-28T00:17:13.762+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n            # Copier les fichiers nécessaires dans le conteneur spark-master\n            docker cp ./dependencies.zip spark-master:/dependencies.zip\n            docker cp ./dags/kafka_to_parquet.py spark-master:/kafka_to_parquet.py\n        \n            # Exécuter le job Spark avec les fichiers copiés et les packages nécessaires\n            docker exec -it spark-master spark-submit                 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1                 --py-files /dependencies.zip                 /kafka_to_parquet.py\n        ']
+[2024-11-28T00:17:13.778+0000] {subprocess.py:86} INFO - Output:
+[2024-11-28T00:17:13.834+0000] {subprocess.py:93} INFO - lstat /tmp/***tmp6yfda5gb/dependencies.zip: no such file or directory
+[2024-11-28T00:17:13.863+0000] {subprocess.py:93} INFO - lstat /tmp/***tmp6yfda5gb/dags: no such file or directory
+[2024-11-28T00:17:13.891+0000] {subprocess.py:93} INFO - Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+[2024-11-28T00:17:13.894+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-11-28T00:17:13.895+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-28T00:17:13.914+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-11-28T00:17:13.924+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=weather_data_kafka_dag, task_id=run_spark_kafka_to_parquet, run_id=scheduled__2024-11-27T23:00:00+00:00, execution_date=20241127T230000, start_date=20241128T001713, end_date=20241128T001713
+[2024-11-28T00:17:13.975+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 49 for task run_spark_kafka_to_parquet (Bash command failed. The command returned a non-zero exit code 1.; 6001)
+[2024-11-28T00:17:14.009+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-11-28T00:17:14.047+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-28T00:17:14.059+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

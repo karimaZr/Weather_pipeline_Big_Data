@@ -1,0 +1,57 @@
+[2024-11-28T07:32:22.874+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-28T07:32:22.964+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-28T06:00:00+00:00 [queued]>
+[2024-11-28T07:32:22.983+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-28T06:00:00+00:00 [queued]>
+[2024-11-28T07:32:22.984+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2024-11-28T07:32:23.026+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): stream_data_from_apis> on 2024-11-28 06:00:00+00:00
+[2024-11-28T07:32:23.047+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=6092) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-28T07:32:23.043+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'stream_data_from_apis', 'scheduled__2024-11-28T06:00:00+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmp9_rlv_dk']
+[2024-11-28T07:32:23.049+0000] {standard_task_runner.py:64} INFO - Started process 6097 to run task
+[2024-11-28T07:32:23.049+0000] {standard_task_runner.py:91} INFO - Job 53: Subtask stream_data_from_apis
+[2024-11-28T07:32:23.183+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-28T06:00:00+00:00 [running]> on host cc9ad6cea7ef
+[2024-11-28T07:32:23.442+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='stream_data_from_apis' AIRFLOW_CTX_EXECUTION_DATE='2024-11-28T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-28T06:00:00+00:00'
+[2024-11-28T07:32:23.444+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-28T07:32:23.494+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: connecting to broker:9092 [('172.18.0.8', 9092) IPv4]
+[2024-11-28T07:32:23.495+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-11-28T07:32:23.497+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: Connection complete.
+[2024-11-28T07:32:23.603+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-11-28T07:32:23.604+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-11-28T07:32:23.644+0000] {kafka_stream.py:52} ERROR - Erreur lors de la récupération des données d'OpenWeatherMap: HTTPConnectionPool(host='api.openweathermap.org', port=80): Max retries exceeded with url: /data/2.5/weather?q=Paris%2Cfr&appid=5228ee3a150af754ec138620204936eb (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f6aea86e450>: Failed to resolve 'api.openweathermap.org' ([Errno -2] Name or service not known)"))
+[2024-11-28T07:32:23.652+0000] {kafka_stream.py:76} ERROR - Erreur lors de la récupération des données d'Open-Meteo: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=48.8566&longitude=2.3522&hourly=temperature_2m (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f6aea739700>: Failed to resolve 'api.open-meteo.com' ([Errno -2] Name or service not known)"))
+[2024-11-28T07:32:24.806+0000] {kafka_stream.py:52} ERROR - Erreur lors de la récupération des données d'OpenWeatherMap: HTTPConnectionPool(host='api.openweathermap.org', port=80): Max retries exceeded with url: /data/2.5/weather?q=Paris%2Cfr&appid=5228ee3a150af754ec138620204936eb (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f6aea784260>: Failed to resolve 'api.openweathermap.org' ([Errno -2] Name or service not known)"))
+[2024-11-28T07:32:24.812+0000] {kafka_stream.py:76} ERROR - Erreur lors de la récupération des données d'Open-Meteo: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=48.8566&longitude=2.3522&hourly=temperature_2m (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f6aea784ad0>: Failed to resolve 'api.open-meteo.com' ([Errno -2] Name or service not known)"))
+[2024-11-28T07:32:28.087+0000] {kafka_stream.py:52} ERROR - Erreur lors de la récupération des données d'OpenWeatherMap: HTTPConnectionPool(host='api.openweathermap.org', port=80): Max retries exceeded with url: /data/2.5/weather?q=Paris%2Cfr&appid=5228ee3a150af754ec138620204936eb (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f6aea785220>: Failed to resolve 'api.openweathermap.org' ([Errno -2] Name or service not known)"))
+[2024-11-28T07:32:28.111+0000] {kafka_stream.py:76} ERROR - Erreur lors de la récupération des données d'Open-Meteo: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=48.8566&longitude=2.3522&hourly=temperature_2m (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f6aea73bda0>: Failed to resolve 'api.open-meteo.com' ([Errno -2] Name or service not known)"))
+[2024-11-28T12:36:01.740+0000] {client_async.py:956} INFO - Closing idle connection bootstrap-0, last active 18218121 ms ago
+[2024-11-28T12:36:01.788+0000] {local_task_job_runner.py:214} ERROR - Heartbeat time limit exceeded!
+[2024-11-28T12:36:01.800+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.8', 9092)]>: Closing connection. 
+[2024-11-28T12:36:01.911+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-11-28T12:36:01.962+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: connecting to broker:9092 [('172.18.0.8', 9092) IPv4]
+[2024-11-28T12:36:01.975+0000] {process_utils.py:132} INFO - Sending 15 to group 6097. PIDs of all processes in the group: [6097]
+[2024-11-28T12:36:01.980+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: Connection complete.
+[2024-11-28T12:36:01.995+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 6097
+[2024-11-28T12:36:02.044+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-11-28T12:36:02.083+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-28T12:36:02.175+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/kafka_stream.py", line 93, in stream_data
+    time.sleep(sleep_duration)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2024-11-28T12:36:02.715+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=weather_data_kafka_dag, task_id=stream_data_from_apis, run_id=scheduled__2024-11-28T06:00:00+00:00, execution_date=20241128T060000, start_date=20241128T073222, end_date=20241128T123602
+[2024-11-28T12:36:02.992+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=6097, status='terminated', exitcode=2, started='07:32:22') (6097) terminated with exit code 2
