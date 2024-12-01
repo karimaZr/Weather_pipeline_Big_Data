@@ -1,10 +1,8 @@
 import logging
-from datetime import datetime
-
 from cassandra.cluster import Cluster
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, from_json
-from pyspark.sql.types import StructType, StructField, StringType
+from pyspark.sql.functions import col, from_json, lit
+from pyspark.sql.types import StructType, StructField, StringType, DoubleType, IntegerType
 
 # Configure logging
 logging.basicConfig(
@@ -15,64 +13,8 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-def create_keyspace(session):
-    session.execute("""
-        CREATE KEYSPACE IF NOT EXISTS spark_streaming
-        WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1}
-        """)
-    
-    logger.info("Keyspace created successfully")
-
-def create_table(session):
-    session.execute("""
-        CREATE TABLE IF NOT EXISTS spark_streaming.created_users (
-            first_name TEXT,
-            last_name TEXT,
-            gender TEXT,
-            address TEXT,
-            post_code TEXT,
-            email TEXT,
-            username TEXT PRIMARY KEY,
-            dob TEXT,
-            registered_date TEXT,
-            phone TEXT,
-            picture TEXT);
-        """)
-    
-    logger.info("Table created successfully")
-
-def insert_data(session, **kwargs):
-    logger.info("Inserting data")
-
-    first_name = kwargs.get('first_name')
-    last_name = kwargs.get('last_name')
-    gender = kwargs.get('gender')
-    address = kwargs.get('address')
-    postcode = kwargs.get('post_code')
-    email = kwargs.get('email')
-    username = kwargs.get('username')
-    dob = kwargs.get('dob')
-    registered_date = kwargs.get('registered_date')
-    phone = kwargs.get('phone')
-    picture = kwargs.get('picture')
-
-    try:
-        session.execute("""
-            INSERT INTO spark_streaming.created_users (first_name, last_name, gender, address,
-                        post_code, email, username, dob, registered_date, phone, picture)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        """, (first_name, last_name, gender, address,
-              postcode, email, username, dob, registered_date, phone, picture))
-        logger.info(f"Data inserted for {first_name} {last_name}")
-
-    except Exception as e:
-        logger.error(f"Error while inserting data: {e}")
-
-
-
 def create_spark_connection():
     s_conn = None
-
     try:
         s_conn = SparkSession.builder \
             .appName('SparkDataStreaming') \
@@ -82,31 +24,24 @@ def create_spark_connection():
             .getOrCreate()
         s_conn.sparkContext.setLogLevel("ERROR")
         logger.info("Spark connection created successfully")
-
     except Exception as e:
         logger.error(f"Error while creating spark connection: {e}")
     
     return s_conn
 
-def connect_to_kafka(spark_conn):
+def connect_to_kafka(spark_conn, topics):
+    # Reading from multiple Kafka topics
     spark_df = None
     try:
         spark_df = spark_conn.readStream \
             .format('kafka') \
             .option('kafka.bootstrap.servers', 'broker:9092') \
-            .option('subscribe', 'users_created') \
+            .option('subscribe', ','.join(topics)) \
             .option('startingOffsets', 'earliest') \
             .load()
         logger.info("Kafka dataframe created successfully")
     except Exception as e:
-        logger.error(f"Kafka dataframe could not be created because: {e}")
-        logger.error(f"Error type: {type(e).__name__}")
-        logger.error(f"Error details: {str(e)}")
-        import traceback
-        logger.error(f"Traceback: {traceback.format_exc()}")
-    
-    if spark_df is None:
-        logger.error("Failed to create Kafka dataframe")
+        logger.error(f"Error while connecting to Kafka: {e}")
     
     return spark_df
 
@@ -117,59 +52,160 @@ def create_cassandra_connection():
         cas_session = cluster.connect()
         logger.info("Cassandra connection created successfully")
         return cas_session
-    
     except Exception as e:
         logger.error(f"Error while creating Cassandra connection: {e}")
         return None
 
-def create_selection_df_from_kafka(spark_df):
+def create_keyspace_and_table(session):
+    # Create Keyspace if it doesn't exist
+    try:
+        session.execute("""
+            CREATE KEYSPACE IF NOT EXISTS spark_streaming WITH REPLICATION = {
+                'class' : 'SimpleStrategy', 'replication_factor' : 3
+            };
+        """)
+        logger.info("Keyspace created or already exists.")
+        
+        # Use the created keyspace
+        session.set_keyspace('spark_streaming')
+
+        # Create table for storing aggregated weather data
+        session.execute("""
+            CREATE TABLE IF NOT EXISTS weather_data (
+                latitude DOUBLE,
+                longitude DOUBLE,
+                generationtime_ms DOUBLE,
+                timezone TEXT,
+                temperature DOUBLE,
+                humidity INT,
+                clouds INT,
+                wind_speed DOUBLE,
+                city_name TEXT,
+                PRIMARY KEY (latitude, longitude)
+            );
+        """)
+        logger.info("Table created or already exists.")
+    except Exception as e:
+        logger.error(f"Error while creating keyspace or table: {e}")
+
+def create_aggregation_schema():
+    # Define schema for aggregating data from both topics
     schema = StructType([
-        StructField("first_name", StringType(), False),
-        StructField("last_name", StringType(), False),
-        StructField("gender", StringType(), False),
-        StructField("address", StringType(), False),
-        StructField("post_code", StringType(), False),
-        StructField("email", StringType(), False),
-        StructField("username", StringType(), False),
-        StructField("dob", StringType(), False),
-        StructField("registered_date", StringType(), False),
-        StructField("phone", StringType(), False),
-        StructField("picture", StringType(), False)
+        StructField("latitude", DoubleType(), True),
+        StructField("longitude", DoubleType(), True),
+        StructField("generationtime_ms", DoubleType(), True),
+        StructField("timezone", StringType(), True),
+        StructField("temperature", DoubleType(), True),
+        StructField("humidity", IntegerType(), True),
+        StructField("clouds", IntegerType(), True),
+        StructField("wind_speed", DoubleType(), True),
+        StructField("city_name", StringType(), True)
+    ])
+    return schema
+
+def process_kafka_data(spark_df):
+    # Schema for `openmeteo_raw` and `openweathermap_raw`
+    openmeteo_schema = StructType([
+        StructField("latitude", DoubleType(), True),
+        StructField("longitude", DoubleType(), True),
+        StructField("generationtime_ms", DoubleType(), True),
+        StructField("timezone", StringType(), True),
+        StructField("hourly_units", StructType([
+            StructField("time", StringType(), True),
+            StructField("temperature_2m", StringType(), True),
+            StructField("precipitation", StringType(), True),
+            StructField("cloudcover", StringType(), True)
+        ]), True)
+    ])
+    
+    openweathermap_schema = StructType([
+        StructField("coord", StructType([
+            StructField("lon", DoubleType(), True),
+            StructField("lat", DoubleType(), True)
+        ]), True),
+        StructField("weather", StructType([
+            StructField("id", IntegerType(), True),
+            StructField("main", StringType(), True),
+            StructField("description", StringType(), True),
+            StructField("icon", StringType(), True)
+        ]), True),
+        StructField("main", StructType([
+            StructField("temp", DoubleType(), True),
+            StructField("humidity", IntegerType(), True)
+        ]), True),
+        StructField("wind", StructType([
+            StructField("speed", DoubleType(), True),
+            StructField("deg", IntegerType(), True)
+        ]), True),
+        StructField("clouds", StructType([
+            StructField("all", IntegerType(), True)
+        ]), True),
+        StructField("sys", StructType([
+            StructField("country", StringType(), True),
+            StructField("sunrise", IntegerType(), True),
+            StructField("sunset", IntegerType(), True)
+        ]), True),
+        StructField("timezone", IntegerType(), True),
+        StructField("name", StringType(), True)
     ])
 
-    sel = spark_df.selectExpr("CAST(value AS STRING)") \
-        .select(from_json(col("value"), schema).alias("data")) \
-        .select("data.*")
-    logger.info("Selection dataframe created successfully")
-    return sel
+    # Convert JSON strings to structured data
+    meteo_data = spark_df.filter(spark_df.topic == 'openmeteo_raw').selectExpr("CAST(value AS STRING)").select(from_json(col("value"), openmeteo_schema).alias("data")).select("data.*")
+    weather_data = spark_df.filter(spark_df.topic == 'openweathermap_raw').selectExpr("CAST(value AS STRING)").select(from_json(col("value"), openweathermap_schema).alias("data")).select("data.*")
+    # Join the data from both streams on latitude and longitude (or any common attribute)
+    joined_df = meteo_data.join(weather_data, (meteo_data.latitude == weather_data.coord.lat) & (meteo_data.longitude == weather_data.coord.lon), "outer")
+
+    # Aggregate the data for final processing
+    aggregated_df = joined_df.select(
+        meteo_data.latitude,
+        meteo_data.longitude,
+        meteo_data.generationtime_ms,
+        meteo_data.timezone,
+        weather_data.main.temp.alias("temperature"),
+        weather_data.main.humidity.alias("humidity"),
+        weather_data.clouds.all.alias("clouds"),
+        weather_data.wind.speed.alias("wind_speed"),
+        weather_data.name.alias("city_name")
+    )
+    return aggregated_df
+
+def insert_data_into_cassandra(aggregated_df, session):
+    # Write the aggregated data into Cassandra
+    aggregated_df.writeStream \
+        .format("org.apache.spark.sql.cassandra") \
+        .option('keyspace', 'spark_streaming') \
+        .option('table', 'weather_data') \
+        .option('checkpointLocation', '/tmp/checkpoint') \
+        .start()
 
 if __name__ == "__main__":
     # Create Spark connection
     spark_conn = create_spark_connection()
 
     if spark_conn is not None:
-        # Create connection to Kafka with Spark
-        spark_df = connect_to_kafka(spark_conn)
-        selection_df = create_selection_df_from_kafka(spark_df)
+        # Define Kafka topics
+        topics = ['openmeteo_raw', 'openweathermap_raw']
 
-        logger.info("Selection dataframe schema:")
-        selection_df.printSchema()
-
+        # Connect to Kafka and get the dataframe
+        spark_df = connect_to_kafka(spark_conn, topics)
+        
         # Create Cassandra connection
         session = create_cassandra_connection()
         
         if session is not None:
-            create_keyspace(session)
-            create_table(session)
+            # Create keyspace and table in Cassandra
+            create_keyspace_and_table(session)
 
-            # Insert data into Cassandra
-            insert_data(session)
+            # Process the Kafka data and create a unified dataframe
+            aggregated_df = process_kafka_data(spark_df)
 
-            streaming_query = selection_df.writeStream.format("org.apache.spark.sql.cassandra") \
-                    .option('keyspace', 'spark_streaming', ) \
-                    .option('checkpointLocation', '/tmp/checkpoint') \
-                    .option('table', 'created_users') \
-                    .start()
-            
-            streaming_query.awaitTermination()
+            # Show schema of the resulting dataframe
+            logger.info("Aggregated Dataframe Schema:")
+            aggregated_df.printSchema()
+
+            # Insert aggregated data into Cassandra
+            insert_data_into_cassandra(aggregated_df, session)
+
+            # Await termination
+            aggregated_df.awaitTermination()
             session.shutdown()

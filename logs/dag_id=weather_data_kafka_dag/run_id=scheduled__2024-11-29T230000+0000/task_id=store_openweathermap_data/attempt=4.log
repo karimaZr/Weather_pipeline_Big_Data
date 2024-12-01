@@ -1,0 +1,41 @@
+[2024-11-30T10:52:32.343+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-30T10:52:32.458+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.store_openweathermap_data scheduled__2024-11-29T23:00:00+00:00 [queued]>
+[2024-11-30T10:52:32.484+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.store_openweathermap_data scheduled__2024-11-29T23:00:00+00:00 [queued]>
+[2024-11-30T10:52:32.490+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 4
+[2024-11-30T10:52:32.541+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): store_openweathermap_data> on 2024-11-29 23:00:00+00:00
+[2024-11-30T10:52:32.567+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=16681) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-30T10:52:32.571+0000] {standard_task_runner.py:64} INFO - Started process 16686 to run task
+[2024-11-30T10:52:32.558+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'store_openweathermap_data', 'scheduled__2024-11-29T23:00:00+00:00', '--job-id', '415', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmpv7cziol9']
+[2024-11-30T10:52:32.572+0000] {standard_task_runner.py:91} INFO - Job 415: Subtask store_openweathermap_data
+[2024-11-30T10:52:32.718+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.store_openweathermap_data scheduled__2024-11-29T23:00:00+00:00 [running]> on host 0741a2a1545f
+[2024-11-30T10:52:32.943+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='store_openweathermap_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-29T23:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-29T23:00:00+00:00'
+[2024-11-30T10:52:32.946+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-30T10:52:32.970+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-30T10:52:32.971+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/kafka_stream.py", line 149, in store_openweathermap_data
+    read_from_kafka_and_store(KAFKA_TOPIC_OPENWEATHER, "openweathermap_data.parquet")
+  File "/opt/airflow/dags/kafka_stream.py", line 144, in read_from_kafka_and_store
+    logging.error(f"Error reading from Kafka topic {topic_name}: {e}")
+                                                                  ^
+NameError: name 'e' is not defined
+[2024-11-30T10:52:32.992+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=weather_data_kafka_dag, task_id=store_openweathermap_data, run_id=scheduled__2024-11-29T23:00:00+00:00, execution_date=20241129T230000, start_date=20241130T105232, end_date=20241130T105232
+[2024-11-30T10:52:33.014+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 415 for task store_openweathermap_data (name 'e' is not defined; 16686)
+[2024-11-30T10:52:33.030+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-11-30T10:52:33.058+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-30T10:52:33.061+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
