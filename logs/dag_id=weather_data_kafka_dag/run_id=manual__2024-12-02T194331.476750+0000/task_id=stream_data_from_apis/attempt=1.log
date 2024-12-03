@@ -1,0 +1,461 @@
+[2024-12-02T19:43:33.218+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-02T19:43:33.244+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis manual__2024-12-02T19:43:31.476750+00:00 [queued]>
+[2024-12-02T19:43:33.251+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis manual__2024-12-02T19:43:31.476750+00:00 [queued]>
+[2024-12-02T19:43:33.252+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2024-12-02T19:43:33.264+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): stream_data_from_apis> on 2024-12-02 19:43:31.476750+00:00
+[2024-12-02T19:43:33.271+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=16711) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-02T19:43:33.272+0000] {standard_task_runner.py:64} INFO - Started process 16719 to run task
+[2024-12-02T19:43:33.271+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'stream_data_from_apis', 'manual__2024-12-02T19:43:31.476750+00:00', '--job-id', '627', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmp51592yl7']
+[2024-12-02T19:43:33.273+0000] {standard_task_runner.py:91} INFO - Job 627: Subtask stream_data_from_apis
+[2024-12-02T19:43:33.307+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.stream_data_from_apis manual__2024-12-02T19:43:31.476750+00:00 [running]> on host 0741a2a1545f
+[2024-12-02T19:43:33.376+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='stream_data_from_apis' AIRFLOW_CTX_EXECUTION_DATE='2024-12-02T19:43:31.476750+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-02T19:43:31.476750+00:00'
+[2024-12-02T19:43:33.377+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-02T19:43:33.389+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:33.389+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:33.390+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:33.496+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:33.498+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:33.580+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:33.582+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:33.586+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:33.689+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:33.690+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:33.691+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:33.793+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:33.795+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:33.801+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:33.802+0000] {conn.py:957} INFO - Probing node 1 broker version
+[2024-12-02T19:43:33.804+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:33.806+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:33.908+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:33.909+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:33.921+0000] {logging_mixin.py:188} INFO - Topic 'openmeteo_raw' deleted.
+[2024-12-02T19:43:33.922+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:33.923+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:33.924+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:34.026+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:34.027+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:34.027+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:34.129+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:34.129+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:34.132+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:34.133+0000] {conn.py:957} INFO - Probing node 1 broker version
+[2024-12-02T19:43:34.134+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:34.134+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:34.236+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:34.237+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:34.251+0000] {logging_mixin.py:188} INFO - Topic 'openweathermap_raw' deleted.
+[2024-12-02T19:43:34.625+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Casablanca: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=33.5928&lon=-7.6192&format=json
+[2024-12-02T19:43:34.877+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:34.880+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:34.881+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:34.984+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:34.985+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:35.144+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:35.146+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:35.148+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:35.296+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Casablanca.
+[2024-12-02T19:43:35.297+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:37.630+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Rabat: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=33.9911&lon=-6.8401&format=json
+[2024-12-02T19:43:37.817+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:37.818+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:37.820+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:37.925+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:37.927+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:37.937+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:37.938+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:37.939+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:37.943+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Rabat.
+[2024-12-02T19:43:37.945+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:40.641+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Fes: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=34.0372&lon=-4.9998&format=json
+[2024-12-02T19:43:40.851+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:40.853+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:40.855+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:40.959+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:40.961+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:40.973+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:40.974+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:40.976+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:40.981+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Fes.
+[2024-12-02T19:43:40.982+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:43.642+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Marrakesh: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=31.6315&lon=-8.0083&format=json
+[2024-12-02T19:43:43.893+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:43.894+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:43.895+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:43.998+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:43.999+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:44.013+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:44.014+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:44.015+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:44.020+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Marrakesh.
+[2024-12-02T19:43:44.023+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:46.652+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Agadir: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=30.4202&lon=-9.5982&format=json
+[2024-12-02T19:43:46.854+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:46.855+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:46.858+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:46.961+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:46.962+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:46.972+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:46.974+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:46.977+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:46.981+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Agadir.
+[2024-12-02T19:43:46.982+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:49.656+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Tangier: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=35.7806&lon=-5.8137&format=json
+[2024-12-02T19:43:49.877+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:49.879+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:49.881+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:49.984+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:49.985+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:49.988+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:49.989+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:49.989+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:49.992+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Tangier.
+[2024-12-02T19:43:49.992+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:52.664+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Meknes: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=33.8935&lon=-5.5473&format=json
+[2024-12-02T19:43:52.876+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:52.877+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:52.878+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:52.980+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:52.981+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:52.986+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:52.987+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:52.988+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:52.990+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Meknes.
+[2024-12-02T19:43:52.992+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:55.665+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Oujda: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=34.6805&lon=-1.9076&format=json
+[2024-12-02T19:43:55.845+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:55.846+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:55.848+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:55.950+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:55.951+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:55.955+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:55.956+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:55.956+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:55.959+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Oujda.
+[2024-12-02T19:43:55.960+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:58.667+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Kenitra: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=34.261&lon=-6.5802&format=json
+[2024-12-02T19:43:58.865+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:58.866+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:43:58.869+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:58.972+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:43:58.973+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:43:58.976+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:43:58.977+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:43:58.977+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:43:58.980+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Kenitra.
+[2024-12-02T19:43:58.981+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:01.671+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Tetouan: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=35.5785&lon=-5.3684&format=json
+[2024-12-02T19:44:01.867+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:01.868+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:01.869+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:01.971+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:01.972+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:01.977+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:01.978+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:01.979+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:01.981+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Tetouan.
+[2024-12-02T19:44:01.983+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:04.684+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Safi: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=32.2994&lon=-9.2372&format=json
+[2024-12-02T19:44:04.893+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:04.896+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:04.900+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:05.007+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:05.009+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:05.019+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:05.020+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:05.021+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:05.025+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Safi.
+[2024-12-02T19:44:05.027+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:07.680+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour El Jadida: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=33.256&lon=-8.508&format=json
+[2024-12-02T19:44:07.896+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:07.897+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:07.899+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:08.001+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:08.002+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:08.006+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:08.007+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:08.008+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:08.010+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - El Jadida.
+[2024-12-02T19:44:08.011+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:10.688+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Nador: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=35.168&lon=-2.93&format=json
+[2024-12-02T19:44:10.890+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:10.891+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:10.892+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:10.994+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:10.995+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:11.000+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:11.001+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:11.002+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:11.004+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Nador.
+[2024-12-02T19:44:11.005+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:13.694+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Khemisset: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=33.8231&lon=-6.0667&format=json
+[2024-12-02T19:44:13.908+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:13.909+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:13.910+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:14.012+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:14.012+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:14.016+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:14.017+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:14.018+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:14.020+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Khemisset.
+[2024-12-02T19:44:14.021+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:16.693+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Settat: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=33.001&lon=-7.616&format=json
+[2024-12-02T19:44:16.896+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:16.896+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:16.897+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:16.999+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:17.000+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:17.003+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:17.004+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:17.005+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:17.007+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Settat.
+[2024-12-02T19:44:17.008+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:19.717+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Larache: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=35.1921&lon=-6.1528&format=json
+[2024-12-02T19:44:19.922+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:19.923+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:19.924+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:20.027+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:20.028+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:20.036+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:20.038+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:20.039+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:20.044+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Larache.
+[2024-12-02T19:44:20.045+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:22.706+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Guelmim: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=28.987&lon=-10.056&format=json
+[2024-12-02T19:44:23.018+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:23.020+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:23.022+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:23.127+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:23.129+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:23.141+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:23.143+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:23.145+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:23.152+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Guelmim.
+[2024-12-02T19:44:23.155+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:25.706+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Taza: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=34.2129&lon=-3.9962&format=json
+[2024-12-02T19:44:25.903+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:25.905+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:25.907+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:26.012+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:26.014+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:26.026+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:26.028+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:26.029+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:26.034+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Taza.
+[2024-12-02T19:44:26.036+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:28.710+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Tiznit: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=29.6974&lon=-9.7316&format=json
+[2024-12-02T19:44:28.932+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:28.933+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:28.934+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:29.036+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:29.037+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:29.041+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:29.042+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:29.042+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:29.045+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Tiznit.
+[2024-12-02T19:44:29.047+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:31.723+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Beni Mellal: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=32.3373&lon=-6.3498&format=json
+[2024-12-02T19:44:31.929+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:31.931+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:31.933+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:32.036+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:32.037+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:32.040+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:32.041+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:32.041+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:32.043+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Beni Mellal.
+[2024-12-02T19:44:32.045+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:34.721+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Mohammedia: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=33.6861&lon=-7.3829&format=json
+[2024-12-02T19:44:34.909+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:34.910+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:34.911+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:35.014+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:35.015+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:35.019+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:35.020+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:35.020+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:35.023+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Mohammedia.
+[2024-12-02T19:44:35.024+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:37.742+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Essaouira: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=31.5132&lon=-9.7681&format=json
+[2024-12-02T19:44:37.928+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:37.929+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:37.930+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:38.032+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:38.033+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:38.037+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:38.038+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:38.039+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:38.041+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Essaouira.
+[2024-12-02T19:44:38.042+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:40.727+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Ksar el-Kebir: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=35.0075&lon=-5.906&format=json
+[2024-12-02T19:44:40.939+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:40.942+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:40.945+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:41.048+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:41.049+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:41.052+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:41.052+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:41.053+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:41.055+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Ksar el-Kebir.
+[2024-12-02T19:44:41.055+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:41.432+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Ouarzazate: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=30.9189&lon=-6.8936&format=json
+[2024-12-02T19:44:41.644+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:41.645+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:41.645+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:41.748+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:41.749+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:41.756+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:41.757+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:41.758+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:41.762+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Ouarzazate.
+[2024-12-02T19:44:41.766+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:44.437+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Al Hoceima: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=35.2517&lon=-3.9372&format=json
+[2024-12-02T19:44:44.637+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:44.637+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:44.638+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:44.741+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:44.742+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:44.749+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:44.750+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:44.751+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:44.754+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Al Hoceima.
+[2024-12-02T19:44:44.755+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:47.448+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Berkane: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=34.92&lon=-2.32&format=json
+[2024-12-02T19:44:47.642+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:47.643+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:47.644+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:47.746+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:47.747+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:47.752+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:47.753+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:47.754+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:47.756+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Berkane.
+[2024-12-02T19:44:47.757+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:50.448+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Taourirt: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=34.404&lon=-2.895&format=json
+[2024-12-02T19:44:50.652+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:50.653+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:50.654+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:50.755+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:50.756+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:50.759+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:50.760+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:50.760+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:50.762+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Taourirt.
+[2024-12-02T19:44:50.763+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:53.464+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Errachidia: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=31.9314&lon=-4.4234&format=json
+[2024-12-02T19:44:53.817+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:53.818+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:53.819+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:53.921+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:53.921+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:53.924+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:53.925+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:53.925+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:53.928+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Errachidia.
+[2024-12-02T19:44:53.928+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:56.454+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Khouribga: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=32.8811&lon=-6.9063&format=json
+[2024-12-02T19:44:56.644+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:56.645+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:56.647+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:56.750+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:56.751+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:56.755+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:56.756+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:56.756+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:56.759+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Khouribga.
+[2024-12-02T19:44:56.760+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:59.456+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Oued Zem: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=32.863&lon=-6.566&format=json
+[2024-12-02T19:44:59.646+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:59.647+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:44:59.648+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:59.750+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:44:59.751+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:44:59.756+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:44:59.757+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:44:59.757+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:44:59.760+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Oued Zem.
+[2024-12-02T19:44:59.761+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:02.468+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Sidi Slimane: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=34.259&lon=-5.927&format=json
+[2024-12-02T19:45:02.722+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:02.725+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:45:02.728+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:02.832+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:45:02.832+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:45:02.835+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:02.836+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:02.837+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:02.839+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Sidi Slimane.
+[2024-12-02T19:45:02.840+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:05.468+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Sidi Kacem: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=34.237&lon=-5.713&format=json
+[2024-12-02T19:45:05.673+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:05.674+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:45:05.675+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:05.780+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:45:05.781+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:45:05.794+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:05.796+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:05.798+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:05.806+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Sidi Kacem.
+[2024-12-02T19:45:05.809+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:08.476+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Azrou: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=33.433&lon=-5.221&format=json
+[2024-12-02T19:45:08.672+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:08.674+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:45:08.675+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:08.778+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:45:08.779+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:45:08.787+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:08.788+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:08.789+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:08.792+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Azrou.
+[2024-12-02T19:45:08.793+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:11.478+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Midelt: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=32.679&lon=-4.734&format=json
+[2024-12-02T19:45:11.770+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:11.771+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:45:11.773+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:11.875+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:45:11.875+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:45:11.880+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:11.880+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:11.881+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:11.883+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Midelt.
+[2024-12-02T19:45:11.884+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:14.486+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Ifrane: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=33.532&lon=-5.108&format=json
+[2024-12-02T19:45:14.690+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:14.691+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:45:14.692+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:14.795+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:45:14.796+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:45:14.804+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:14.806+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:14.807+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:14.812+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Ifrane.
+[2024-12-02T19:45:14.814+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:15.461+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Chefchaouen: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=35.171&lon=-5.263&format=json
+[2024-12-02T19:45:15.659+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:15.661+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:45:15.669+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:15.773+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:45:15.775+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:45:15.787+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:15.789+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:15.790+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:15.795+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Chefchaouen.
+[2024-12-02T19:45:15.797+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:18.487+0000] {kafka_stream.py:310} ERROR - Erreur lors de la récupération des données d'Open-Meteo pour Laayoune: 403 Client Error: Forbidden for url: https://nominatim.openstreetmap.org/reverse?lat=27.125&lon=-13.162&format=json
+[2024-12-02T19:45:18.681+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:18.682+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T19:45:18.683+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:18.786+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T19:45:18.788+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T19:45:18.799+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T19:45:18.801+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T19:45:18.803+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:18.809+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Laayoune.
+[2024-12-02T19:45:18.811+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:18.813+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T19:45:18.815+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-12-02T19:45:18.817+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-02T19:45:18.831+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weather_data_kafka_dag, task_id=stream_data_from_apis, run_id=manual__2024-12-02T19:43:31.476750+00:00, execution_date=20241202T194331, start_date=20241202T194333, end_date=20241202T194518
+[2024-12-02T19:45:18.881+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-12-02T19:45:18.897+0000] {taskinstance.py:3503} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2024-12-02T19:45:18.900+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

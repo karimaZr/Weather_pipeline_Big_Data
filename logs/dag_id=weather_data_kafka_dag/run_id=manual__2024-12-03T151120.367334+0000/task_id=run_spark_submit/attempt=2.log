@@ -1,0 +1,38 @@
+[2024-12-03T15:17:01.846+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-03T15:17:01.873+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.run_spark_submit manual__2024-12-03T15:11:20.367334+00:00 [queued]>
+[2024-12-03T15:17:01.881+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.run_spark_submit manual__2024-12-03T15:11:20.367334+00:00 [queued]>
+[2024-12-03T15:17:01.882+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 4
+[2024-12-03T15:17:01.894+0000] {taskinstance.py:2330} INFO - Executing <Task(SparkSubmitOperator): run_spark_submit> on 2024-12-03 15:11:20.367334+00:00
+[2024-12-03T15:17:01.901+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'run_spark_submit', 'manual__2024-12-03T15:11:20.367334+00:00', '--job-id', '760', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmpttef0zmi']
+[2024-12-03T15:17:01.903+0000] {standard_task_runner.py:91} INFO - Job 760: Subtask run_spark_submit
+[2024-12-03T15:17:01.904+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=590) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-03T15:17:01.904+0000] {standard_task_runner.py:64} INFO - Started process 592 to run task
+[2024-12-03T15:17:01.940+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.run_spark_submit manual__2024-12-03T15:11:20.367334+00:00 [running]> on host 0f9edd113eb4
+[2024-12-03T15:17:02.036+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='run_spark_submit' AIRFLOW_CTX_EXECUTION_DATE='2024-12-03T15:11:20.367334+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-03T15:11:20.367334+00:00'
+[2024-12-03T15:17:02.038+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-03T15:17:02.056+0000] {spark_submit.py:304} INFO - Could not load connection string spark_default, defaulting to yarn
+[2024-12-03T15:17:02.057+0000] {spark_submit.py:473} INFO - Spark-Submit cmd: spark-submit --master yarn --conf spark.executor.memory=2g --py-files /dependencies.zip --jars com.datastax.spark:spark-cassandra-connector_2.12:3.5.1 --name arrow-spark /spark_stream.py
+[2024-12-03T15:17:02.127+0000] {spark_submit.py:634} INFO - /home/***/.local/lib/python3.12/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+[2024-12-03T15:17:02.127+0000] {spark_submit.py:634} INFO - JAVA_HOME is not set
+[2024-12-03T15:17:02.128+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-03T15:17:02.136+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 176, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 560, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master yarn --conf spark.executor.memory=2g --py-files /dependencies.zip --jars com.datastax.spark:spark-cassandra-connector_2.12:3.5.1 --name arrow-spark /spark_stream.py. Error code is: 1.
+[2024-12-03T15:17:02.140+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=weather_data_kafka_dag, task_id=run_spark_submit, run_id=manual__2024-12-03T15:11:20.367334+00:00, execution_date=20241203T151120, start_date=20241203T151701, end_date=20241203T151702
+[2024-12-03T15:17:02.156+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 760 for task run_spark_submit (Cannot execute: spark-submit --master yarn --conf spark.executor.memory=2g --py-files /dependencies.zip --jars com.datastax.spark:spark-cassandra-connector_2.12:3.5.1 --name arrow-spark /spark_stream.py. Error code is: 1.; 592)
+[2024-12-03T15:17:02.199+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-12-03T15:17:02.215+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-03T15:17:02.219+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

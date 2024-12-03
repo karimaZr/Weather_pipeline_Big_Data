@@ -1,0 +1,39 @@
+[2024-12-03T13:22:27.247+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-03T13:22:27.280+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.docker_cp_and_spark_submit manual__2024-12-03T13:11:51.220035+00:00 [queued]>
+[2024-12-03T13:22:27.289+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.docker_cp_and_spark_submit manual__2024-12-03T13:11:51.220035+00:00 [queued]>
+[2024-12-03T13:22:27.298+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 4
+[2024-12-03T13:22:27.328+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): docker_cp_and_spark_submit> on 2024-12-03 13:11:51.220035+00:00
+[2024-12-03T13:22:27.336+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'docker_cp_and_spark_submit', 'manual__2024-12-03T13:11:51.220035+00:00', '--job-id', '696', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmpid4i34ro']
+[2024-12-03T13:22:27.339+0000] {standard_task_runner.py:91} INFO - Job 696: Subtask docker_cp_and_spark_submit
+[2024-12-03T13:22:27.340+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=1504) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-03T13:22:27.341+0000] {standard_task_runner.py:64} INFO - Started process 1512 to run task
+[2024-12-03T13:22:27.400+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.docker_cp_and_spark_submit manual__2024-12-03T13:11:51.220035+00:00 [running]> on host 0f9edd113eb4
+[2024-12-03T13:22:27.567+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='docker_cp_and_spark_submit' AIRFLOW_CTX_EXECUTION_DATE='2024-12-03T13:11:51.220035+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-03T13:11:51.220035+00:00'
+[2024-12-03T13:22:27.568+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-03T13:22:27.579+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-03T13:22:27.580+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n            docker cp ./data/parquet_files/openweathermap_data.parquet spark-master:/openweathermap_data.parquet\n            docker cp ./data/parquet_files/openmeteo_data.parquet spark-master:/openmeteo_data.parquet\n            docker cp /opt/***/data/spark_stream.py spark-master:/spark_stream.py\n            docker exec -it spark-master spark-submit     --packages com.datastax.spark:spark-cassandra-connector_2.12:3.5.1     --py-files /dependencies.zip     /spark_stream.py\n        ']
+[2024-12-03T13:22:27.589+0000] {subprocess.py:86} INFO - Output:
+[2024-12-03T13:22:27.631+0000] {subprocess.py:93} INFO - lstat /tmp/***tmp4z11qcl5/data: no such file or directory
+[2024-12-03T13:22:27.658+0000] {subprocess.py:93} INFO - lstat /tmp/***tmp4z11qcl5/data: no such file or directory
+[2024-12-03T13:22:27.742+0000] {subprocess.py:93} INFO - the input device is not a TTY
+[2024-12-03T13:22:27.743+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-12-03T13:22:27.744+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-03T13:22:27.752+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-12-03T13:22:27.756+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=weather_data_kafka_dag, task_id=docker_cp_and_spark_submit, run_id=manual__2024-12-03T13:11:51.220035+00:00, execution_date=20241203T131151, start_date=20241203T132227, end_date=20241203T132227
+[2024-12-03T13:22:27.767+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 696 for task docker_cp_and_spark_submit (Bash command failed. The command returned a non-zero exit code 1.; 1512)
+[2024-12-03T13:22:27.798+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-12-03T13:22:27.818+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-03T13:22:27.820+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

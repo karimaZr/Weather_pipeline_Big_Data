@@ -1,0 +1,794 @@
+[2024-12-02T18:01:42.565+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-02T18:01:42.591+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis manual__2024-12-02T18:01:41.377808+00:00 [queued]>
+[2024-12-02T18:01:42.598+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis manual__2024-12-02T18:01:41.377808+00:00 [queued]>
+[2024-12-02T18:01:42.598+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2024-12-02T18:01:42.609+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): stream_data_from_apis> on 2024-12-02 18:01:41.377808+00:00
+[2024-12-02T18:01:42.615+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=13518) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-02T18:01:42.616+0000] {standard_task_runner.py:64} INFO - Started process 13523 to run task
+[2024-12-02T18:01:42.615+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'stream_data_from_apis', 'manual__2024-12-02T18:01:41.377808+00:00', '--job-id', '597', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmp2y5h7oqf']
+[2024-12-02T18:01:42.617+0000] {standard_task_runner.py:91} INFO - Job 597: Subtask stream_data_from_apis
+[2024-12-02T18:01:42.657+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.stream_data_from_apis manual__2024-12-02T18:01:41.377808+00:00 [running]> on host 0741a2a1545f
+[2024-12-02T18:01:42.734+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='stream_data_from_apis' AIRFLOW_CTX_EXECUTION_DATE='2024-12-02T18:01:41.377808+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-02T18:01:41.377808+00:00'
+[2024-12-02T18:01:42.736+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-02T18:01:42.747+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:42.748+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:42.749+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:42.852+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:42.853+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:42.859+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:42.861+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:42.862+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:42.965+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:42.966+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:42.967+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:43.069+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:43.070+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:43.073+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:43.074+0000] {conn.py:957} INFO - Probing node 1 broker version
+[2024-12-02T18:01:43.075+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:43.076+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:43.177+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:43.178+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:43.179+0000] {logging_mixin.py:188} INFO - Topic 'openmeteo_raw' does not exist. No action taken.
+[2024-12-02T18:01:43.181+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:43.182+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:43.183+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:43.284+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:43.285+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:43.286+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:43.387+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:43.388+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:43.390+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:43.391+0000] {conn.py:957} INFO - Probing node 1 broker version
+[2024-12-02T18:01:43.392+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:43.392+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:43.494+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:43.495+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:43.498+0000] {logging_mixin.py:188} INFO - Topic 'openweathermap_raw' does not exist. No action taken.
+[2024-12-02T18:01:43.756+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:43.758+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:43.759+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:43.862+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:43.863+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:44.021+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:44.022+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:44.023+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:44.156+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Casablanca.
+[2024-12-02T18:01:44.157+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:44.554+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:44.555+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:44.557+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:44.661+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:44.663+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:44.824+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:44.825+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:44.825+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:44.942+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Casablanca.
+[2024-12-02T18:01:44.943+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:45.119+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:45.119+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:45.120+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:45.222+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:45.223+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:45.226+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:45.227+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:45.228+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:45.230+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Rabat.
+[2024-12-02T18:01:45.231+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:45.641+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:45.642+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:45.643+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:45.745+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:45.746+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:45.750+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:45.751+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:45.752+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:45.755+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Rabat.
+[2024-12-02T18:01:45.756+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:45.928+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:45.929+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:45.931+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:46.035+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:46.037+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:46.048+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:46.050+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:46.052+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:46.059+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Fès.
+[2024-12-02T18:01:46.061+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:46.438+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:46.440+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:46.442+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:46.545+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:46.547+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:46.557+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:46.558+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:46.559+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:46.562+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Fès.
+[2024-12-02T18:01:46.563+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:46.746+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:46.748+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:46.750+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:46.853+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:46.855+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:46.859+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:46.860+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:46.861+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:46.863+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Marrakech.
+[2024-12-02T18:01:46.864+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:47.297+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:47.300+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:47.303+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:47.408+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:47.410+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:47.423+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:47.424+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:47.426+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:47.430+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Marrakech.
+[2024-12-02T18:01:47.432+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:47.620+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:47.621+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:47.623+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:47.725+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:47.726+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:47.733+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:47.734+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:47.735+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:47.740+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Agadir.
+[2024-12-02T18:01:47.741+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:48.164+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:48.165+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:48.166+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:48.267+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:48.268+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:48.272+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:48.273+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:48.273+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:48.275+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Agadir.
+[2024-12-02T18:01:48.276+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:48.492+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:48.495+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:48.498+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:48.603+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:48.604+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:48.612+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:48.613+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:48.614+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:48.618+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Tanger.
+[2024-12-02T18:01:48.619+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:49.008+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:49.010+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:49.011+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:49.114+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:49.115+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:49.121+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:49.122+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:49.123+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:49.127+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Tanger.
+[2024-12-02T18:01:49.129+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:49.315+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:49.316+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:49.318+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:49.420+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:49.420+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:49.424+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:49.424+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:49.425+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:49.427+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Meknès.
+[2024-12-02T18:01:49.428+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:49.815+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:49.816+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:49.819+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:49.924+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:49.926+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:49.939+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:49.942+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:49.944+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:49.952+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Meknès.
+[2024-12-02T18:01:49.955+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:50.156+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:50.157+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:50.159+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:50.264+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:50.266+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:50.277+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:50.279+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:50.280+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:50.286+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Oujda.
+[2024-12-02T18:01:50.288+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:50.682+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:50.684+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:50.688+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:50.791+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:50.792+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:50.797+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:50.798+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:50.799+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:50.802+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Oujda.
+[2024-12-02T18:01:50.803+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:50.985+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:50.988+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:50.991+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:51.096+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:51.098+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:51.106+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:51.108+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:51.109+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:51.113+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Kenitra.
+[2024-12-02T18:01:51.115+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:51.513+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:51.515+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:51.517+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:51.620+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:51.621+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:51.625+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:51.626+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:51.627+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:51.629+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Kenitra.
+[2024-12-02T18:01:51.631+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:51.806+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:51.807+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:51.809+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:51.912+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:51.912+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:51.917+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:51.919+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:51.920+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:51.923+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Tetouan.
+[2024-12-02T18:01:51.924+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:52.334+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:52.334+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:52.335+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:52.437+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:52.438+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:52.441+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:52.442+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:52.442+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:52.444+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Tetouan.
+[2024-12-02T18:01:52.445+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:52.642+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:52.645+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:52.649+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:52.752+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:52.753+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:52.757+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:52.758+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:52.759+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:52.761+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - El Jadida.
+[2024-12-02T18:01:52.762+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:53.150+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:53.151+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:53.154+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:53.257+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:53.257+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:53.260+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:53.261+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:53.262+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:53.264+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - El Jadida.
+[2024-12-02T18:01:53.265+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:53.476+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:53.477+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:53.479+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:53.582+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:53.582+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:53.587+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:53.589+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:53.590+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:53.593+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Safi.
+[2024-12-02T18:01:53.594+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:53.965+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:53.965+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:53.967+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:54.070+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:54.071+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:54.077+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:54.078+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:54.079+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:54.083+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Safi.
+[2024-12-02T18:01:54.084+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:54.266+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:54.268+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:54.270+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:54.373+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:54.375+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:54.381+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:54.382+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:54.383+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:54.386+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Beni Mellal.
+[2024-12-02T18:01:54.387+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:54.776+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:54.777+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:54.780+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:54.882+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:54.885+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:54.891+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:54.893+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:54.893+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:54.896+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Beni Mellal.
+[2024-12-02T18:01:54.897+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:55.093+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:55.094+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:55.096+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:55.199+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:55.200+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:55.205+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:55.206+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:55.207+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:55.210+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Nador.
+[2024-12-02T18:01:55.211+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:55.583+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:55.584+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:55.584+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:55.687+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:55.687+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:55.691+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:55.691+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:55.692+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:55.694+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Nador.
+[2024-12-02T18:01:55.695+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:55.886+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:55.887+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:55.888+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:55.990+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:55.991+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:55.997+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:55.998+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:55.999+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:56.002+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Taza.
+[2024-12-02T18:01:56.003+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:56.455+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:56.456+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:56.458+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:56.562+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:56.564+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:56.576+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:56.577+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:56.579+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:56.583+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Taza.
+[2024-12-02T18:01:56.585+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:56.783+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:56.784+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:56.785+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:56.887+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:56.888+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:56.892+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:56.893+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:56.893+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:56.895+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Essaouira.
+[2024-12-02T18:01:56.896+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:57.282+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:57.282+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:57.283+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:57.385+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:57.385+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:57.389+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:57.389+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:57.390+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:57.392+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Essaouira.
+[2024-12-02T18:01:57.392+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:57.577+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:57.578+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:57.579+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:57.680+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:57.681+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:57.684+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:57.685+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:57.685+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:57.687+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Khouribga.
+[2024-12-02T18:01:57.688+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:58.147+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:58.148+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:58.149+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:58.250+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:58.251+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:58.255+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:58.255+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:58.256+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:58.258+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Khouribga.
+[2024-12-02T18:01:58.259+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:58.440+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:58.441+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:58.442+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:58.543+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:58.544+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:58.548+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:58.548+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:58.549+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:58.551+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Settat.
+[2024-12-02T18:01:58.552+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:58.962+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:58.963+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:58.964+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:59.065+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:59.066+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:59.070+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:59.071+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:59.072+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:59.075+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Settat.
+[2024-12-02T18:01:59.077+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:59.259+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:59.260+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:59.261+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:59.363+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:59.363+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:59.366+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:59.367+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:59.368+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:59.370+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Larache.
+[2024-12-02T18:01:59.371+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:59.772+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:59.773+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:01:59.774+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:59.876+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:01:59.876+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:01:59.880+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:01:59.881+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:01:59.882+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:01:59.884+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Larache.
+[2024-12-02T18:01:59.885+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:00.072+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:00.073+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:00.073+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:00.175+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:00.176+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:00.180+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:00.180+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:00.181+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:00.183+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Ksar El Kebir.
+[2024-12-02T18:02:00.184+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:00.556+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:00.557+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:00.558+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:00.660+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:00.661+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:00.664+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:00.665+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:00.666+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:00.668+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Ksar El Kebir.
+[2024-12-02T18:02:00.669+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:00.842+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:00.843+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:00.844+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:00.947+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:00.948+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:00.953+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:00.953+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:00.954+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:00.957+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Taourirt.
+[2024-12-02T18:02:00.958+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:01.370+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:01.372+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:01.374+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:01.477+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:01.477+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:01.482+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:01.482+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:01.483+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:01.486+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Taourirt.
+[2024-12-02T18:02:01.487+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:01.689+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:01.689+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:01.691+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:01.793+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:01.793+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:01.796+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:01.797+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:01.797+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:01.799+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Guercif.
+[2024-12-02T18:02:01.800+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:02.219+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:02.220+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:02.221+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:02.323+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:02.324+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:02.328+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:02.328+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:02.329+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:02.332+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Guercif.
+[2024-12-02T18:02:02.333+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:02.534+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:02.536+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:02.538+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:02.643+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:02.645+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:02.657+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:02.659+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:02.661+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:02.669+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Guelmim.
+[2024-12-02T18:02:02.672+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:03.081+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:03.082+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:03.083+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:03.184+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:03.185+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:03.189+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:03.190+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:03.190+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:03.192+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Guelmim.
+[2024-12-02T18:02:03.193+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:03.368+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:03.368+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:03.369+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:03.473+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:03.475+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:03.488+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:03.490+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:03.493+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:03.500+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Dakhla.
+[2024-12-02T18:02:03.502+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:03.909+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:03.910+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:03.912+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:04.015+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:04.017+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:04.026+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:04.028+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:04.029+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:04.034+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Dakhla.
+[2024-12-02T18:02:04.036+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:04.223+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:04.223+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:04.225+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:04.327+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:04.328+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:04.332+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:04.334+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:04.334+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:04.337+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Laayoune.
+[2024-12-02T18:02:04.339+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:04.723+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:04.724+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:04.725+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:04.827+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:04.828+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:04.832+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:04.832+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:04.833+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:04.835+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Laayoune.
+[2024-12-02T18:02:04.836+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:05.014+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:05.015+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:05.016+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:05.119+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:05.121+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:05.129+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:05.130+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:05.132+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:05.137+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Ifrane.
+[2024-12-02T18:02:05.139+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:05.551+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:05.551+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:05.552+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:05.654+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:05.654+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:05.657+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:05.658+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:05.658+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:05.660+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Ifrane.
+[2024-12-02T18:02:05.661+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:05.844+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:05.847+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:05.851+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:05.956+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:05.957+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:05.964+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:05.965+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:05.966+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:05.970+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Azrou.
+[2024-12-02T18:02:05.971+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:06.357+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:06.360+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:06.364+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:06.471+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:06.473+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:06.489+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:06.492+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:06.494+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:06.501+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Azrou.
+[2024-12-02T18:02:06.503+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:06.689+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:06.690+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:06.692+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:06.794+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:06.794+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:06.797+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:06.798+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:06.799+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:06.800+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Errachidia.
+[2024-12-02T18:02:06.801+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:07.193+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:07.194+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:07.195+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:07.297+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:07.298+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:07.302+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:07.303+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:07.303+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:07.305+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Errachidia.
+[2024-12-02T18:02:07.306+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:07.541+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:07.542+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:07.544+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:07.647+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:07.648+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:07.654+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:07.655+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:07.656+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:07.659+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Ouarzazate.
+[2024-12-02T18:02:07.660+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:08.061+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:08.062+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:08.064+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:08.166+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:08.167+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:08.171+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:08.171+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:08.172+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:08.174+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Ouarzazate.
+[2024-12-02T18:02:08.175+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:08.431+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:08.432+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:08.432+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:08.536+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:08.538+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:08.551+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:08.553+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:08.555+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:08.563+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Taroudant.
+[2024-12-02T18:02:08.566+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:08.979+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:08.981+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:08.984+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:09.089+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:09.090+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:09.096+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:09.098+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:09.099+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:09.103+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Taroudant.
+[2024-12-02T18:02:09.105+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:09.294+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:09.294+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:09.296+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:09.397+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:09.398+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:09.401+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:09.402+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:09.402+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:09.405+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Chefchaouen.
+[2024-12-02T18:02:09.405+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:09.772+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:09.773+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:09.774+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:09.878+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:09.881+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:09.895+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:09.897+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:09.899+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:09.904+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Chefchaouen.
+[2024-12-02T18:02:09.906+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:10.115+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:10.117+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:10.119+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:10.222+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:10.223+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:10.226+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:10.227+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:10.227+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:10.229+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Berkane.
+[2024-12-02T18:02:10.230+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:10.626+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:10.628+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:10.629+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:10.732+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:10.732+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:10.737+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:10.738+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:10.739+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:10.742+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Berkane.
+[2024-12-02T18:02:10.743+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:10.915+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:10.916+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:10.918+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:11.022+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:11.024+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:11.034+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:11.035+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:11.036+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:11.042+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Sidi Kacem.
+[2024-12-02T18:02:11.043+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:11.438+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:11.439+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:11.441+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:11.543+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:11.544+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:11.551+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:11.552+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:11.553+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:11.556+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Sidi Kacem.
+[2024-12-02T18:02:11.557+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:11.725+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:11.726+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:11.728+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:11.833+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:11.835+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:11.847+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:11.849+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:11.851+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:11.859+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Sidi Slimane.
+[2024-12-02T18:02:11.862+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:12.243+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:12.244+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:12.245+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:12.347+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:12.347+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:12.351+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:12.351+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:12.352+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:12.354+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Sidi Slimane.
+[2024-12-02T18:02:12.355+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:12.586+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:12.587+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:12.588+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:12.689+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:12.690+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:12.694+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:12.694+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:12.695+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:12.697+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Sidi Ifni.
+[2024-12-02T18:02:12.698+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:13.078+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:13.081+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:13.084+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:13.189+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:13.190+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:13.194+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:13.195+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:13.195+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:13.198+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Sidi Ifni.
+[2024-12-02T18:02:13.199+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:13.398+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:13.401+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:13.404+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:13.508+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:13.509+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:13.515+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:13.516+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:13.518+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:13.521+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Tiznit.
+[2024-12-02T18:02:13.524+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:13.938+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:13.940+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:13.942+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:14.044+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:14.045+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:14.049+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:14.050+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:14.051+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:14.053+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Tiznit.
+[2024-12-02T18:02:14.055+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:14.226+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:14.228+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:14.229+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:14.333+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:14.334+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:14.342+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:14.343+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:14.345+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:14.351+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour OpenWeatherMap - Tan-Tan.
+[2024-12-02T18:02:14.353+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:14.766+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:14.767+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T18:02:14.770+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:14.873+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T18:02:14.874+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T18:02:14.883+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T18:02:14.884+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T18:02:14.885+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:14.890+0000] {logging_mixin.py:188} INFO - Données envoyées à Kafka pour Open-Meteo - Tan-Tan.
+[2024-12-02T18:02:14.892+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:14.894+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T18:02:14.895+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-12-02T18:02:14.896+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-02T18:02:14.907+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weather_data_kafka_dag, task_id=stream_data_from_apis, run_id=manual__2024-12-02T18:01:41.377808+00:00, execution_date=20241202T180141, start_date=20241202T180142, end_date=20241202T180214
+[2024-12-02T18:02:14.944+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-12-02T18:02:14.962+0000] {taskinstance.py:3503} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2024-12-02T18:02:14.964+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

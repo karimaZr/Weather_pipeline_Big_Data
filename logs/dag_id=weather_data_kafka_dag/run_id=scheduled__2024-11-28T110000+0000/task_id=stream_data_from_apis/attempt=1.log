@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2024-11-28T12:36:06.676+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
 [2024-11-28T12:36:06.837+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-28T11:00:00+00:00 [queued]>
 [2024-11-28T12:36:06.857+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-28T11:00:00+00:00 [queued]>
@@ -1064,6 +1065,8 @@
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 =======
 >>>>>>> 048f6068eb29d48fefdd3fd35ffd8cd62ff42be0
+=======
+>>>>>>> 604b8b813e1d85ccda3063889c3dd1126b7c5791
 [2024-11-28T12:46:42.048+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
 [2024-11-28T12:46:42.167+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-28T11:00:00+00:00 [queued]>
 [2024-11-28T12:46:42.211+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis scheduled__2024-11-28T11:00:00+00:00 [queued]>
@@ -2263,8 +2266,11 @@
 [2024-11-28T12:48:47.122+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 =======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 =======
 >>>>>>> 048f6068eb29d48fefdd3fd35ffd8cd62ff42be0
+=======
+>>>>>>> 604b8b813e1d85ccda3063889c3dd1126b7c5791

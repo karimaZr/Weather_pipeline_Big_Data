@@ -20,6 +20,9 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/script/entrypoint.sh:/opt/airflow/script/entrypoint.sh
     - ${AIRFLOW_PROJ_DIR:-.}/requirements.txt:/opt/airflow/requirements.txt
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/data:/opt/airflow/data
+    - ${AIRFLOW_PROJ_DIR:-.}/airflow/data/spark_stream.py:/opt/airflow/data/spark_stream.py
+
+    - /var/run/docker.sock:/var/run/docker.sock
 
   user: "${AIRFLOW_UID:-50000}:0"
 
@@ -269,8 +272,8 @@ services:
       SPARK_WORKER_MEMORY: 1g
       SPARK_MASTER_URL: spark://spark-master:7077
     volumes:
-      - ./jars:/opt/spark/jars
-      - ./config:/opt/spark/conf
+      - ./streamlit:/app
+      - ${AIRFLOW_PROJ_DIR:-.}/airflow/data:/opt/airflow/data
     networks:
       - streamsnet
   

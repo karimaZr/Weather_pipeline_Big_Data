@@ -2354,6 +2354,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [2024-11-27T22:08:48.625+0000] {processor.py:161} INFO - Started process (PID=2674) to work on /opt/airflow/dags/kafka_stream.py
 [2024-11-27T22:08:48.626+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-27T22:08:48.627+0000] {logging_mixin.py:188} INFO - [2024-11-27T22:08:48.626+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
@@ -4004,6 +4005,8 @@ NameError: name 'BashOperator' is not defined
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 =======
 >>>>>>> 048f6068eb29d48fefdd3fd35ffd8cd62ff42be0
+=======
+>>>>>>> 604b8b813e1d85ccda3063889c3dd1126b7c5791
 [2024-11-27T23:51:05.800+0000] {processor.py:161} INFO - Started process (PID=188) to work on /opt/airflow/dags/kafka_stream.py
 [2024-11-27T23:51:05.803+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/kafka_stream.py for tasks to queue
 [2024-11-27T23:51:05.806+0000] {logging_mixin.py:188} INFO - [2024-11-27T23:51:05.805+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_stream.py
@@ -4101,8 +4104,11 @@ NameError: name 'BashOperator' is not defined
 [2024-11-27T23:57:11.797+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/kafka_stream.py took 0.262 seconds
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 =======
 >>>>>>> 59e260a5714548da4c84d2d0b011eaaf0a02f958
 =======
 >>>>>>> 048f6068eb29d48fefdd3fd35ffd8cd62ff42be0
+=======
+>>>>>>> 604b8b813e1d85ccda3063889c3dd1126b7c5791

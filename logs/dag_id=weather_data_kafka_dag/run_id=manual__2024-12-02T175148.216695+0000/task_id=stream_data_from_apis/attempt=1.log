@@ -1,0 +1,91 @@
+[2024-12-02T17:51:49.744+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-02T17:51:49.771+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis manual__2024-12-02T17:51:48.216695+00:00 [queued]>
+[2024-12-02T17:51:49.777+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.stream_data_from_apis manual__2024-12-02T17:51:48.216695+00:00 [queued]>
+[2024-12-02T17:51:49.778+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2024-12-02T17:51:49.790+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): stream_data_from_apis> on 2024-12-02 17:51:48.216695+00:00
+[2024-12-02T17:51:49.797+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=13170) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-02T17:51:49.797+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'stream_data_from_apis', 'manual__2024-12-02T17:51:48.216695+00:00', '--job-id', '588', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmp3djw6_c8']
+[2024-12-02T17:51:49.798+0000] {standard_task_runner.py:64} INFO - Started process 13172 to run task
+[2024-12-02T17:51:49.798+0000] {standard_task_runner.py:91} INFO - Job 588: Subtask stream_data_from_apis
+[2024-12-02T17:51:49.845+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.stream_data_from_apis manual__2024-12-02T17:51:48.216695+00:00 [running]> on host 0741a2a1545f
+[2024-12-02T17:51:49.924+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='stream_data_from_apis' AIRFLOW_CTX_EXECUTION_DATE='2024-12-02T17:51:48.216695+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-02T17:51:48.216695+00:00'
+[2024-12-02T17:51:49.925+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-02T17:51:49.937+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T17:51:49.938+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T17:51:49.939+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T17:51:50.042+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T17:51:50.042+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T17:51:50.046+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T17:51:50.047+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T17:51:50.048+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T17:51:50.150+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T17:51:50.150+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T17:51:50.151+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T17:51:50.253+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T17:51:50.254+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T17:51:50.260+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T17:51:50.261+0000] {conn.py:957} INFO - Probing node 1 broker version
+[2024-12-02T17:51:50.263+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T17:51:50.264+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T17:51:50.367+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T17:51:50.368+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T17:51:50.369+0000] {logging_mixin.py:188} INFO - Topic 'openmeteo_raw' does not exist. No action taken.
+[2024-12-02T17:51:50.371+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T17:51:50.371+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T17:51:50.372+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T17:51:50.474+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T17:51:50.474+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T17:51:50.475+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-02T17:51:50.576+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T17:51:50.577+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T17:51:50.579+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: connecting to broker:9092 [('172.18.0.11', 9092) IPv4]
+[2024-12-02T17:51:50.580+0000] {conn.py:957} INFO - Probing node 1 broker version
+[2024-12-02T17:51:50.581+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.11', 9092)]>: Connection complete.
+[2024-12-02T17:51:50.581+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T17:51:50.683+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-02T17:51:50.684+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-02T17:51:50.686+0000] {logging_mixin.py:188} INFO - Topic 'openweathermap_raw' does not exist. No action taken.
+[2024-12-02T17:51:50.687+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.687+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.688+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.688+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.689+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.689+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.689+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.690+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.690+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.691+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.691+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.691+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.692+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.692+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.693+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.693+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.693+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.693+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.694+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.694+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.694+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.695+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.695+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.695+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.695+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.696+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.696+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.696+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.697+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.697+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.697+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.697+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.698+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.698+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.698+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.699+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.699+0000] {kafka_stream.py:159} ERROR - Erreur dans le processus de streaming des données: 'name'
+[2024-12-02T17:51:50.700+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.11', 9092)]>: Closing connection. 
+[2024-12-02T17:51:50.702+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-12-02T17:51:50.703+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-02T17:51:50.710+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weather_data_kafka_dag, task_id=stream_data_from_apis, run_id=manual__2024-12-02T17:51:48.216695+00:00, execution_date=20241202T175148, start_date=20241202T175149, end_date=20241202T175150
+[2024-12-02T17:51:50.736+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-12-02T17:51:50.756+0000] {taskinstance.py:3503} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2024-12-02T17:51:50.760+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

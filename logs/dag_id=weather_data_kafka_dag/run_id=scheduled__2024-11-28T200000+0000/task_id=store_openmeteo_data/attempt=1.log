@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2024-11-28T21:03:07.605+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
 [2024-11-28T21:03:07.690+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.store_openmeteo_data scheduled__2024-11-28T20:00:00+00:00 [queued]>
 [2024-11-28T21:03:07.708+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.store_openmeteo_data scheduled__2024-11-28T20:00:00+00:00 [queued]>
@@ -39,3 +40,36 @@ NameError: name 'e' is not defined
 [2024-11-28T21:03:08.167+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
 [2024-11-28T21:03:08.198+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
 [2024-11-28T21:03:08.201+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+=======
+[2024-11-28T21:02:08.379+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-28T21:02:08.485+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.store_openmeteo_data scheduled__2024-11-28T20:00:00+00:00 [queued]>
+[2024-11-28T21:02:08.509+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.store_openmeteo_data scheduled__2024-11-28T20:00:00+00:00 [queued]>
+[2024-11-28T21:02:08.510+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2024-11-28T21:02:08.555+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): store_openmeteo_data> on 2024-11-28 20:00:00+00:00
+[2024-11-28T21:02:08.580+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=6226) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-28T21:02:08.582+0000] {standard_task_runner.py:64} INFO - Started process 6230 to run task
+[2024-11-28T21:02:08.574+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'store_openmeteo_data', 'scheduled__2024-11-28T20:00:00+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmpmfu1eosq']
+[2024-11-28T21:02:08.588+0000] {standard_task_runner.py:91} INFO - Job 24: Subtask store_openmeteo_data
+[2024-11-28T21:02:08.735+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.store_openmeteo_data scheduled__2024-11-28T20:00:00+00:00 [running]> on host 0fc93f6e8c9e
+[2024-11-28T21:02:09.196+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='store_openmeteo_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-28T20:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-28T20:00:00+00:00'
+[2024-11-28T21:02:09.208+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-28T21:02:09.265+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.20.0.8', 9092)]>: connecting to broker:9092 [('172.20.0.8', 9092) IPv4]
+[2024-11-28T21:02:09.267+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-11-28T21:02:09.270+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.20.0.8', 9092)]>: Connection complete.
+[2024-11-28T21:02:09.378+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-11-28T21:02:09.379+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-11-28T21:02:09.381+0000] {consumer.py:122} WARNING - group_id is None: disabling auto-commit.
+[2024-11-28T21:02:09.385+0000] {subscription_state.py:167} INFO - Updating subscribed topics to: ('openmeteo_raw',)
+[2024-11-28T21:02:09.389+0000] {subscription_state.py:253} INFO - Updated partition assignment: [('openmeteo_raw', 0)]
+[2024-11-28T21:02:09.394+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.20.0.8', 9092)]>: connecting to broker:9092 [('172.20.0.8', 9092) IPv4]
+[2024-11-28T21:02:09.397+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.20.0.8', 9092)]>: Connection complete.
+[2024-11-28T21:02:09.402+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.20.0.8', 9092)]>: Closing connection. 
+[2024-11-28T21:02:09.585+0000] {logging_mixin.py:188} INFO - Consumed 100 records from topic openmeteo_raw
+[2024-11-28T21:02:09.807+0000] {logging_mixin.py:188} INFO - Data from openmeteo_raw stored in /opt/***/data/parquet_files/openmeteo_data.parquet
+[2024-11-28T21:02:09.828+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-11-28T21:02:09.829+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-28T21:02:09.874+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weather_data_kafka_dag, task_id=store_openmeteo_data, run_id=scheduled__2024-11-28T20:00:00+00:00, execution_date=20241128T200000, start_date=20241128T210208, end_date=20241128T210209
+[2024-11-28T21:02:10.040+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-11-28T21:02:10.095+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-28T21:02:10.114+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+>>>>>>> 604b8b813e1d85ccda3063889c3dd1126b7c5791

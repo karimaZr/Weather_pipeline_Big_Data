@@ -1,0 +1,66 @@
+[2024-12-03T14:08:01.062+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-03T14:08:01.109+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_data_kafka_dag.run_docker_command manual__2024-12-03T14:07:28.698270+00:00 [queued]>
+[2024-12-03T14:08:01.125+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_data_kafka_dag.run_docker_command manual__2024-12-03T14:07:28.698270+00:00 [queued]>
+[2024-12-03T14:08:01.126+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2024-12-03T14:08:01.144+0000] {taskinstance.py:2330} INFO - Executing <Task(DockerOperator): run_docker_command> on 2024-12-03 14:07:28.698270+00:00
+[2024-12-03T14:08:01.173+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=3062) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-03T14:08:01.176+0000] {standard_task_runner.py:64} INFO - Started process 3064 to run task
+[2024-12-03T14:08:01.173+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'weather_data_kafka_dag', 'run_docker_command', 'manual__2024-12-03T14:07:28.698270+00:00', '--job-id', '718', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmpeq484y3q']
+[2024-12-03T14:08:01.181+0000] {standard_task_runner.py:91} INFO - Job 718: Subtask run_docker_command
+[2024-12-03T14:08:01.274+0000] {task_command.py:426} INFO - Running <TaskInstance: weather_data_kafka_dag.run_docker_command manual__2024-12-03T14:07:28.698270+00:00 [running]> on host 0f9edd113eb4
+[2024-12-03T14:08:01.510+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='weather_data_kafka_dag' AIRFLOW_CTX_TASK_ID='run_docker_command' AIRFLOW_CTX_EXECUTION_DATE='2024-12-03T14:07:28.698270+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-03T14:07:28.698270+00:00'
+[2024-12-03T14:08:01.512+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-03T14:08:01.617+0000] {docker.py:496} INFO - ::group::Pulling docker image docker:latest
+[2024-12-03T14:08:03.417+0000] {docker.py:510} INFO - latest: Pulling from library/docker
+[2024-12-03T14:08:04.023+0000] {docker.py:510} INFO - 67a04a7ff7d2: Pulling fs layer
+[2024-12-03T14:08:04.025+0000] {docker.py:510} INFO - da9db072f522: Pulling fs layer
+[2024-12-03T14:08:04.026+0000] {docker.py:510} INFO - 16ef5fc10cd3: Pulling fs layer
+[2024-12-03T14:08:04.027+0000] {docker.py:510} INFO - 3d1ebdd83577: Pulling fs layer
+[2024-12-03T14:08:04.027+0000] {docker.py:510} INFO - 50dca03fda78: Pulling fs layer
+[2024-12-03T14:08:04.028+0000] {docker.py:510} INFO - 4f4fb700ef54: Pulling fs layer
+[2024-12-03T14:08:04.029+0000] {docker.py:510} INFO - c73149c53d3b: Pulling fs layer
+[2024-12-03T14:08:04.030+0000] {docker.py:510} INFO - 9d52faa00270: Pulling fs layer
+[2024-12-03T14:08:04.031+0000] {docker.py:510} INFO - f2d9edfe36a6: Pulling fs layer
+[2024-12-03T14:08:04.032+0000] {docker.py:510} INFO - 9a8033d952a3: Pulling fs layer
+[2024-12-03T14:08:04.033+0000] {docker.py:510} INFO - 8c91c45b7163: Pulling fs layer
+[2024-12-03T14:08:04.034+0000] {docker.py:510} INFO - 083f80306f14: Pulling fs layer
+[2024-12-03T14:08:04.036+0000] {docker.py:510} INFO - 81a4876464e3: Pulling fs layer
+[2024-12-03T14:08:04.037+0000] {docker.py:510} INFO - 6fb1d2cfec65: Pulling fs layer
+[2024-12-03T14:08:04.039+0000] {docker.py:510} INFO - 85f49706f80d: Pulling fs layer
+[2024-12-03T14:08:04.040+0000] {docker.py:510} INFO - a89c8d520078: Pulling fs layer
+[2024-12-03T14:08:04.042+0000] {docker.py:510} INFO - 4f4fb700ef54: Already exists
+[2024-12-03T14:08:04.336+0000] {docker.py:510} INFO - a89c8d520078: Download complete
+[2024-12-03T14:08:04.434+0000] {docker.py:510} INFO - 67a04a7ff7d2: Download complete
+[2024-12-03T14:08:04.540+0000] {docker.py:510} INFO - 3d1ebdd83577: Download complete
+[2024-12-03T14:08:04.734+0000] {docker.py:510} INFO - 81a4876464e3: Downloading
+[2024-12-03T14:08:04.735+0000] {docker.py:510} INFO - 6fb1d2cfec65: Download complete
+[2024-12-03T14:08:04.736+0000] {docker.py:510} INFO - 8c91c45b7163: Download complete
+[2024-12-03T14:08:04.737+0000] {docker.py:510} INFO - 16ef5fc10cd3: Downloading
+[2024-12-03T14:08:04.834+0000] {docker.py:510} INFO - 81a4876464e3: Download complete
+[2024-12-03T14:08:04.836+0000] {docker.py:510} INFO - 16ef5fc10cd3: Download complete
+[2024-12-03T14:08:04.934+0000] {docker.py:510} INFO - f2d9edfe36a6: Download complete
+[2024-12-03T14:08:05.338+0000] {docker.py:510} INFO - 9a8033d952a3: Downloading
+[2024-12-03T14:08:06.333+0000] {docker.py:510} INFO - da9db072f522: Downloading
+[2024-12-03T14:08:06.632+0000] {docker.py:510} INFO - c73149c53d3b: Downloading
+[2024-12-03T14:08:07.333+0000] {docker.py:510} INFO - 9d52faa00270: Downloading
+[2024-12-03T14:08:07.532+0000] {docker.py:510} INFO - 85f49706f80d: Downloading
+[2024-12-03T14:08:07.633+0000] {docker.py:510} INFO - 083f80306f14: Downloading
+[2024-12-03T14:08:07.833+0000] {docker.py:510} INFO - 50dca03fda78: Downloading
+[2024-12-03T14:08:11.336+0000] {docker.py:510} INFO - da9db072f522: Download complete
+[2024-12-03T14:08:15.433+0000] {docker.py:510} INFO - 9a8033d952a3: Download complete
+[2024-12-03T14:08:20.834+0000] {docker.py:510} INFO - c73149c53d3b: Download complete
+[2024-12-03T14:08:38.831+0000] {docker.py:510} INFO - 50dca03fda78: Download complete
+[2024-12-03T14:08:39.330+0000] {docker.py:510} INFO - 083f80306f14: Download complete
+[2024-12-03T14:08:40.230+0000] {docker.py:510} INFO - 9d52faa00270: Download complete
+[2024-12-03T14:09:02.534+0000] {docker.py:510} INFO - 85f49706f80d: Download complete
+[2024-12-03T14:09:04.327+0000] {docker.py:505} INFO - Digest: sha256:bec82cb05983f12a14d8f169b00748f4ded8573f4da5f1d15d375b6a2470289f
+[2024-12-03T14:09:04.328+0000] {docker.py:505} INFO - Status: Downloaded newer image for docker:latest
+[2024-12-03T14:09:04.329+0000] {docker.py:512} INFO - ::endgroup::
+[2024-12-03T14:09:04.330+0000] {docker.py:367} INFO - Starting docker container from image docker:latest
+[2024-12-03T14:09:04.347+0000] {docker.py:375} WARNING - Using remote engine or docker-in-docker and mounting temporary volume from host is not supported. Falling back to `mount_tmp_dir=False` mode. You can set `mount_tmp_dir` parameter to False to disable mounting and remove the warning
+[2024-12-03T14:09:08.569+0000] {docker.py:438} INFO - Hello, Docker!
+[2024-12-03T14:09:08.976+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-03T14:09:09.010+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=weather_data_kafka_dag, task_id=run_docker_command, run_id=manual__2024-12-03T14:07:28.698270+00:00, execution_date=20241203T140728, start_date=20241203T140801, end_date=20241203T140909
+[2024-12-03T14:09:09.073+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-12-03T14:09:09.092+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-03T14:09:09.095+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
