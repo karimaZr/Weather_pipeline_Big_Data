@@ -15,7 +15,6 @@ from pathlib import Path
 import os
 from kafka.admin import KafkaAdminClient, NewTopic
 from airflow.providers.docker.operators.docker import DockerOperator
-from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
 from airflow.operators.bash import BashOperator
 
