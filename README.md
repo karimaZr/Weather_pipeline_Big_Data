@@ -23,7 +23,8 @@ This project represents an orchestration of a Big Data pipeline for data visuali
 ## Execution
 
 1. Access the Airflow interface in `http://localhost:8086/home` and run the DAG:
-   ![Airflow Interface](https://github.com/user-attachments/assets/cd0abe9f-5bda-4c94-aa92-66b6e05161ce)
+   ![Airflow Interface]<img width="959" alt="image" src="https://github.com/user-attachments/assets/8db70e39-d1ae-4958-b23a-977c08a10f89">
+
 2. In the Kafka UI, you can view the topics that have been created. To do so, navigate to the following URL:  `http://localhost:8085/ui/clusters/local/all-topics?perPage=25`
     You should be able to see the list of topics created in your Kafka cluster.
     ![Kafka UI Topics](https://github.com/user-attachments/assets/6a0685e8-81db-46bd-8a9f-724ce031a376)
