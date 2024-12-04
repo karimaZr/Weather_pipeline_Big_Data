@@ -1,0 +1,8 @@
+# Ignore parquet files in airflow/data
+airflow/data/parquet_files/
+
+# Ignore Python bytecode files in dags/__pycache__
+dags/__pycache__/
+
+# Ignore logs directory
+logs/

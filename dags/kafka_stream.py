@@ -13,6 +13,7 @@ from pathlib import Path
 import pandas as pd
 from pathlib import Path
 import os
+from airflow.operators.bash import BashOperator
 
 # Arguments par défaut pour le DAG
 default_args = {
@@ -25,7 +26,6 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)  # Create directory if it doesn't 
 
 # Configuration des API
 OPENWEATHER_API_KEY = '8167e2dfee0bd9f28f8eafbd9e355ad3'
-OPENWEATHER_API_KEY = '8167e2dfee0bd9f28f8eafbd9e355ad3'
 OPENMETEO_API_URL = 'https://api.open-meteo.com/v1/forecast'
 OPENWEATHER_API_URL = 'http://api.openweathermap.org/data/2.5/weather'
 KAFKA_SERVER = 'broker:9092'  # Adresse de votre serveur Kafka
@@ -33,46 +33,210 @@ KAFKA_TOPIC_OPENWEATHER = 'openweathermap_raw'
 KAFKA_TOPIC_OPENMETEO = 'openmeteo_raw'
 
 # Liste des villes à traiter
-cities = [
-    {'name': 'Casablanca', 'latitude': 33.5945144, 'longitude': -7.6200284},
-    {'name': 'Rabat', 'latitude': 34.02236, 'longitude': -6.8340222},
-    {'name': 'Fès', 'latitude': 34.0346534, 'longitude': -5.0161926},
-    {'name': 'Marrakech', 'latitude': 31.6258257, 'longitude': -7.9891608},
-    {'name': 'Agadir', 'latitude': 30.4205162, 'longitude': -9.5838532},
-    {'name': 'Tanger', 'latitude': 35.7696302, 'longitude': -5.8033522},
-    {'name': 'Meknès', 'latitude': 33.8984131, 'longitude': -5.5321582},
-    {'name': 'Oujda', 'latitude': 34.677874, 'longitude': -1.929306},
-    {'name': 'Kenitra', 'latitude': 34.26457, 'longitude': -6.570169},
-    {'name': 'Tetouan', 'latitude': 35.570175, 'longitude': -5.3742776},
-    {'name': 'El Jadida', 'latitude': 33.22932285, 'longitude': -8.499356736652636},
-    {'name': 'Safi', 'latitude': 32.299424, 'longitude': -9.239533},
-    {'name': 'Beni Mellal', 'latitude': 32.334193, 'longitude': -6.353335},
-    {'name': 'Nador', 'latitude': 35.1739922, 'longitude': -2.9281198},
-    {'name': 'Taza', 'latitude': 34.230155, 'longitude': -4.010104},
-    {'name': 'Essaouira', 'latitude': 31.5118281, 'longitude': -9.7620903},
-    {'name': 'Khouribga', 'latitude': 32.8856482, 'longitude': -6.908798},
-    {'name': 'Settat', 'latitude': 33.002397, 'longitude': -7.619867},
-    {'name': 'Larache', 'latitude': 35.1952327, 'longitude': -6.152913},
-    {'name': 'Ksar El Kebir', 'latitude': 34.999218, 'longitude': -5.898724},
-    {'name': 'Taourirt', 'latitude': 34.413438, 'longitude': -2.893825},
-    {'name': 'Guercif', 'latitude': 34.225576, 'longitude': -3.352345},
-    {'name': 'Guelmim', 'latitude': 28.9863852, 'longitude': -10.0574351},
-    {'name': 'Dakhla', 'latitude': 23.6940663, 'longitude': -15.9431274},
-    {'name': 'Laayoune', 'latitude': 27.154512, 'longitude': -13.1953921},
-    {'name': 'Ifrane', 'latitude': 33.527605, 'longitude': -5.107408},
-    {'name': 'Azrou', 'latitude': 33.436117, 'longitude': -5.221913},
-    {'name': 'Errachidia', 'latitude': 31.929089, 'longitude': -4.4340807},
-    {'name': 'Ouarzazate', 'latitude': 30.920193, 'longitude': -6.910923},
-    {'name': 'Taroudant', 'latitude': 30.470651, 'longitude': -8.877922},
-    {'name': 'Chefchaouen', 'latitude': 35.1693724, 'longitude': -5.275765468193203},
-    {'name': 'Berkane', 'latitude': 34.9266755, 'longitude': -2.3294087},
-    {'name': 'Sidi Kacem', 'latitude': 34.226412, 'longitude': -5.711434},
-    {'name': 'Sidi Slimane', 'latitude': 34.259878, 'longitude': -5.927253},
-    {'name': 'Sidi Ifni', 'latitude': 29.3791253, 'longitude': -10.1715632},
-    {'name': 'Tiznit', 'latitude': 29.698624, 'longitude': -9.7312815},
-    {'name': 'Tan-Tan', 'latitude': 28.437553, 'longitude': -11.098664}
+cities =[
+    {
+        "name": "Casablanca",
+        "latitude": 33.5928,
+        "longitude": -7.6192
+    },
+    {
+        "name": "Rabat",
+        "latitude": 33.9911,
+        "longitude": -6.8401
+    },
+    {
+        "name": "Fes",
+        "latitude": 34.0372,
+        "longitude": -4.9998
+    },
+    {
+        "name": "Marrakesh",
+        "latitude": 31.6315,
+        "longitude": -8.0083
+    },
+    {
+        "name": "Agadir",
+        "latitude": 30.4202,
+        "longitude": -9.5982
+    },
+    {
+        "name": "Tangier",
+        "latitude": 35.7806,
+        "longitude": -5.8137
+    },
+    {
+        "name": "Meknes",
+        "latitude": 33.8935,
+        "longitude": -5.5473
+    },
+    {
+        "name": "Oujda",
+        "latitude": 34.6805,
+        "longitude": -1.9076
+    },
+    {
+        "name": "Kenitra",
+        "latitude": 34.261,
+        "longitude": -6.5802
+    },
+    {
+        "name": "Tétouan",
+        "latitude": 35.5785,
+        "longitude": -5.3684
+    },
+    {
+        "name": "Safi",
+        "latitude": 32.2994,
+        "longitude": -9.2372
+    },
+    {
+        "name": "El Jadida",
+        "latitude": 33.256,
+        "longitude": -8.508
+    },
+    {
+        "name": "Nador",
+        "latitude": 35.168,
+        "longitude": -2.93
+    },
+    {
+        "name": "Khemisset",
+        "latitude": 33.8231,
+        "longitude": -6.0667
+    },
+    {
+        "name": "Settat",
+        "latitude": 33.001,
+        "longitude": -7.616
+    },
+    {
+        "name": "Larache",
+        "latitude": 35.1921,
+        "longitude": -6.1528
+    },
+    {
+        "name": "Guelmim",
+        "latitude": 28.987,
+        "longitude": -10.056
+    },
+    {
+        "name": "Taza",
+        "latitude": 34.2129,
+        "longitude": -3.9962
+    },
+    {
+        "name": "Tiznit Province",
+        "latitude": 29.6974,
+        "longitude": -9.7316
+    },
+    {
+        "name": "Beni Mellal",
+        "latitude": 32.3373,
+        "longitude": -6.3498
+    },
+    {
+        "name": "Mohammedia",
+        "latitude": 33.6861,
+        "longitude": -7.3829
+    },
+    {
+        "name": "Mogador",
+        "latitude": 31.5132,
+        "longitude": -9.7681
+    },
+    {
+        "name": "Ksar el-Kebir",
+        "latitude": 35.0075,
+        "longitude": -5.906
+    },
+    {
+        "name": "Ouarzazate Province",
+        "latitude": 30.9189,
+        "longitude": -6.8936
+    },
+    {
+        "name": "Al Hoceima",
+        "latitude": 35.2517,
+        "longitude": -3.9372
+    },
+    {
+        "name": "Berkane",
+        "latitude": 34.92,
+        "longitude": -2.32
+    },
+    {
+        "name": "Taourirt",
+        "latitude": 34.404,
+        "longitude": -2.895
+    },
+    {
+        "name": "Errachidia",
+        "latitude": 31.9314,
+        "longitude": -4.4234
+    },
+    {
+        "name": "Khouribga Province",
+        "latitude": 32.8811,
+        "longitude": -6.9063
+    },
+    {
+        "name": "Oued Zem",
+        "latitude": 32.863,
+        "longitude": -6.566
+    },
+    {
+        "name": "Sidi Slimane",
+        "latitude": 34.259,
+        "longitude": -5.927
+    },
+    {
+        "name": "Sidi Kacem",
+        "latitude": 34.237,
+        "longitude": -5.713
+    },
+    {
+        "name": "Azrou",
+        "latitude": 33.433,
+        "longitude": -5.221
+    },
+    {
+        "name": "Midelt",
+        "latitude": 32.679,
+        "longitude": -4.734
+    },
+    {
+        "name": "Ifrane",
+        "latitude": 33.532,
+        "longitude": -5.108
+    },
+    {
+        "name": "Chefchaouen",
+        "latitude": 35.171,
+        "longitude": -5.263
+    },
+    {
+        "name": "Laayoune",
+        "latitude": 27.125,
+        "longitude": -13.162
+    }
 ]
+def delete_kafka_topic(topic_name):
+    """Delete and recreate a Kafka topic."""
+    try:
+        admin_client = KafkaAdminClient(bootstrap_servers=KAFKA_SERVER)
+        existing_topics = admin_client.list_topics()
+        
+        # Check if the topic exists
+        if topic_name in existing_topics:
+            # Delete the topic
+            admin_client.delete_topics([topic_name])
+            print(f"Topic '{topic_name}' deleted.")
+        else:
+            print(f"Topic '{topic_name}' does not exist. No action taken.")
+    
 
+    except Exception as e:
+        print(f"Error resetting topic '{topic_name}': {e}")
 
 def fetch_openweathermap_data(city):
     """Récupère les données depuis OpenWeatherMap API pour une ville donnée et les envoie dans Kafka."""
@@ -87,11 +251,11 @@ def fetch_openweathermap_data(city):
         response.raise_for_status()
 
         data = response.json()
-
         # Initialiser le producteur Kafka
         producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER,
                                  value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
+        
         # Envoi des données pour chaque ville
         producer.send(KAFKA_TOPIC_OPENWEATHER, value=data)
         producer.flush()
@@ -113,7 +277,7 @@ def fetch_openmeteo_data(city):
         response.raise_for_status()
 
         data = response.json()
-
+        
         # Initialiser le producteur Kafka
         producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER,
                                  value_serializer=lambda v: json.dumps(v).encode('utf-8'))
@@ -129,8 +293,8 @@ def fetch_openmeteo_data(city):
 def stream_data():
     """Récupère les données de plusieurs API pour plusieurs villes et les envoie dans Kafka."""
     producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER, max_block_ms=5000)
-    curr_time = time.time()
-
+    delete_kafka_topic(KAFKA_TOPIC_OPENMETEO)
+    delete_kafka_topic(KAFKA_TOPIC_OPENWEATHER)
 
     for city in cities:
         try:
@@ -142,10 +306,12 @@ def stream_data():
             continue
     
 
-def read_from_kafka_and_store(topic_name, output_file):
+def read_from_kafka_and_store(topic_name, output_file, add_city_name=False):
     """
     Reads messages from a Kafka topic and stores them in a Parquet file.
     If the file already exists, it will be deleted before writing the new records.
+    
+    :param add_city_name: Si True, ajoute le nom de la ville aux données (utile pour Open-Meteo)
     """
     try:
         # Initialize Kafka Consumer
@@ -156,13 +322,24 @@ def read_from_kafka_and_store(topic_name, output_file):
             value_deserializer=lambda v: json.loads(v.decode('utf-8'))
         )
 
-        # Collect messages
+        # Collect messages and optionally add city name
         records = []
+        city_index = 0  # Pour associer chaque message à une ville de la liste
         for message in consumer:
-            records.append(message.value)  # Extract the message value (JSON object)
+            if topic_name == 'openmeteo_raw' and add_city_name:  # Ajoute le nom de la ville pour Open-Meteo
+                if city_index >= len(cities):  # Limiter à la taille de la liste de villes
+                    break
+                message_value = message.value
+                city = cities[city_index]
+                message_value['city_name'] = city['name']  # Ajout du nom de la ville
+                city_index += 1
+            else:
+                message_value = message.value
+
+            records.append(message_value)  # Ajouter le message aux enregistrements
 
             # Stop consuming after a fixed number of messages (or a time limit)
-            if len(records) >= 100:  # Example limit
+            if len(records) >= 37:  # Exemple de limite de messages
                 break
 
         # Log the number of records consumed
@@ -197,15 +374,33 @@ def store_openweathermap_data():
     read_from_kafka_and_store(KAFKA_TOPIC_OPENWEATHER, "openweathermap_data.parquet")
 
 def store_openmeteo_data():
-    """Reads from Open-Meteo Kafka topic and stores data in a Parquet file."""
-    read_from_kafka_and_store(KAFKA_TOPIC_OPENMETEO, "openmeteo_data.parquet")
+    """Reads from Open-Meteo Kafka topic and stores data in a Parquet file, adding city name."""
+    read_from_kafka_and_store(KAFKA_TOPIC_OPENMETEO, "openmeteo_data.parquet", add_city_name=True)
+
+def extract_data():
+    from cassandra.cluster import Cluster
+    import pandas as pd
+
+    # Connect to Cassandra and query the weather data
+    cluster = Cluster(['cassandra_db'])  # Replace with actual Cassandra host
+    session = cluster.connect('spark_streaming')  # Replace with actual keyspace
+    query = "SELECT * FROM weather_data"
+    rows = session.execute(query)
+
+    # Convert the result into a DataFrame
+    data = pd.DataFrame(rows)
+    
+    # Save data to CSV file
+    output_file = '/opt/airflow/data/weather_data.csv'
+    data.to_csv(output_file, index=False)
+    print(f"Data extracted and saved to {output_file}")
 
 
 # Création du DAG dans Airflow
 with DAG(
     'weather_data_kafka_dag',
     default_args=default_args,
-    schedule_interval='@hourly',  # Exécution chaque heure
+    schedule_interval='@daily',  # Exécution chaque heure
     catchup=False
 ) as dag:
 
@@ -222,5 +417,48 @@ with DAG(
         task_id='store_openmeteo_data',
         python_callable=store_openmeteo_data
     )
+     # Copy openweathermap_data.parquet
+    copy_openweathermap = BashOperator(
+        task_id='copy_openweathermap',
+        bash_command='docker cp /opt/airflow/data/parquet_files/openweathermap_data.parquet spark-master:/openweathermap_data.parquet'
+    )
+
+    # Copy openmeteo_data.parquet
+    copy_openmeteo = BashOperator(
+        task_id='copy_openmeteo',
+        bash_command='docker cp /opt/airflow/data/parquet_files/openmeteo_data.parquet spark-master:/openmeteo_data.parquet'
+    )
+
+    # Copy spark_stream.py
+    copy_spark_stream = BashOperator(
+        task_id='copy_spark_stream',
+        bash_command='docker cp /opt/airflow/data/spark_stream.py spark-master:/spark_stream.py'
+    )
+
+    # Run spark-submit
+   
+    spark_submit_task = BashOperator(
+        task_id='spark_submit',
+        bash_command=(
+            'docker exec  spark-master spark-submit '
+            '--packages com.datastax.spark:spark-cassandra-connector_2.12:3.5.1 '
+            '--py-files /dependencies.zip /spark_stream.py'
+        ),
+    )
+    extract_data_task = PythonOperator(
+    task_id='extract_data_task',
+    python_callable=extract_data,
+    dag=dag,
+)
+
     # Exécution de la tâche
     streaming_task >> [store_openweathermap_task, store_openmeteo_task]
+
+    # Chaque tâche de la première liste se termine avant que les tâches de la seconde liste commencent
+    [store_openweathermap_task, store_openmeteo_task] >> copy_openweathermap
+    [store_openweathermap_task, store_openmeteo_task] >> copy_openmeteo
+    [store_openweathermap_task, store_openmeteo_task] >> copy_spark_stream
+
+    # Une fois que toutes les copies sont effectuées, on passe à spark_submit
+    [copy_openweathermap, copy_openmeteo, copy_spark_stream] >> spark_submit_task
+    spark_submit_task >> extract_data_task
