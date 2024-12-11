@@ -4,6 +4,7 @@ from pyspark.sql.types import FloatType, StringType, StructType, StructField
 import joblib
 import os
 from datetime import datetime, timedelta
+import shutil
 
 # Initialize Spark
 spark = SparkSession.builder.appName("TimeSeriesUDF").getOrCreate()
@@ -23,8 +24,8 @@ variables = ["humidity", "pressure", "sea_level", "temp", "visibility", "wind_sp
 
 # Define UDF for prediction
 def predict(city, var, last_time):
-    model_path_arima = f"/tmp/models/{city}_{var}_ARIMA.pkl"
-    model_path_sarimax = f"/tmp/models/{city}_{var}_SARIMAX.pkl"
+    model_path_arima = f"/tmp/models/{city}{var}ARIMA.pkl"
+    model_path_sarimax = f"/tmp/models/{city}{var}SARIMAX.pkl"
 
     # Check which model exists
     if os.path.exists(model_path_arima):
@@ -93,12 +94,19 @@ final_df = predictions[0]
 for df in predictions[1:]:
     final_df = final_df.union(df)
 
-# Get the current timestamp to use in the file name
-current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
 
 # Generate the output file name based on the current time
-output_file_name = f"/tmp/output_predictions_{current_time}.csv"
+output_file_name = "/tmp/output/output_predictions.csv"
 
+    
+if os.path.exists(output_file_name):
+    try:
+        shutil.rmtree(output_file_name)
+        print(f"Directory {output_file_name} and its contents have been removed.")
+    except Exception as e:
+        print(f"Error while removing directory: {e}")
+          
 # Save the results with the dynamic file name
 final_df.write.csv(output_file_name, header=True)
 

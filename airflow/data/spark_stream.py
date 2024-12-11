@@ -99,8 +99,8 @@ def process_parquet_files(spark_conn):
     ])
 
     # Lire les fichiers .parquet avec les schémas explicites
-    df1 = spark_conn.read.schema(schema1).parquet("/openweathermap_data.parquet")
-    df2 = spark_conn.read.schema(schema2).parquet("/openmeteo_data.parquet")
+    df1 = spark_conn.read.schema(schema1).parquet("/tmp/output/parquet_files/openweathermap_data.parquet")
+    df2 = spark_conn.read.schema(schema2).parquet("/tmp/output/parquet_files/openmeteo_data.parquet")
     
     # Sélectionner et transformer les données
     df1 = df1.select(

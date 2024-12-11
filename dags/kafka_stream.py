@@ -14,7 +14,7 @@ import pandas as pd
 from pathlib import Path
 import os
 from kafka.admin import KafkaAdminClient, NewTopic
-from airflow.providers.docker.operators.docker import DockerOperator
+# from airflow.providers.docker.operators.docker import DockerOperator
 from cassandra.cluster import Cluster
 from airflow.operators.bash import BashOperator
 
@@ -247,10 +247,16 @@ def store_data_forprediction():
         # Step 3: Fetch the last 37 rows from the table
         print(f"Fetching data from table '{table_name}'...")
         query = f"SELECT * FROM {table_name} LIMIT 10000;"
+        query = f"SELECT * FROM {table_name};"
         rows = session.execute(query)
         data = [row._asdict() for row in rows]
-        last_37_rows = data[-37:]  # Get the last 37 rows
-        
+
+        # Sort by time in Python (assuming 'time' is a datetime object or timestamp)
+        sorted_data = sorted(data, key=lambda x: x['time'], reverse=True)
+
+        # Get the last 37 rows
+        last_37_rows = sorted_data[:37]
+
         if not last_37_rows:
             print("No data found in the table.")
             return
@@ -451,28 +457,8 @@ with DAG(
         task_id='store_openmeteo_data',
         python_callable=store_openmeteo_data
     )
-     # Copy openweathermap_data.parquet
-    copy_openweathermap = BashOperator(
-        task_id='copy_openweathermap',
-        bash_command='docker cp /opt/airflow/data/parquet_files/openweathermap_data.parquet spark-master:/openweathermap_data.parquet'
-    )
+     
 
-    # Copy openmeteo_data.parquet
-    copy_openmeteo = BashOperator(
-        task_id='copy_openmeteo',
-        bash_command='docker cp /opt/airflow/data/parquet_files/openmeteo_data.parquet spark-master:/openmeteo_data.parquet'
-    )
-
-    # Copy spark_stream.py
-    copy_spark_stream = BashOperator(
-        task_id='copy_spark_stream',
-        bash_command='docker cp /opt/airflow/data/spark_stream.py spark-master:/spark_stream.py'
-    )
-
-    copy_predict = BashOperator(
-        task_id='copy_predict',
-        bash_command='docker cp /opt/airflow/data/predict.py spark-master:/predict.py'
-    )
 
     # Run spark-submit
    
@@ -481,7 +467,7 @@ with DAG(
         bash_command=(
             'docker exec  spark-master spark-submit '
             '--packages com.datastax.spark:spark-cassandra-connector_2.12:3.5.1 '
-            '--py-files /dependencies.zip /spark_stream.py'
+            '--py-files /dependencies.zip /tmp/output/spark_stream.py'
         ),
     )
 
@@ -490,20 +476,14 @@ with DAG(
         bash_command=(
             'docker exec  spark-master spark-submit '
             '--packages com.datastax.spark:spark-cassandra-connector_2.12:3.5.1 '
-            '--py-files /dependencies.zip /predict.py'
+            '--py-files /dependencies.zip /tmp/output/predict.py'
         ),
     )
 
     # Exécution de la tâche
 
-    streaming_task >> store_data_forprediction_task
-    store_data_forprediction_task >> [store_openweathermap_task, store_openmeteo_task]
+    streaming_task >> store_dataofpredict_task 
+    store_dataofpredict_task>> [store_openweathermap_task, store_openmeteo_task]
     # Chaque tâche de la première liste se termine avant que les tâches de la seconde liste commencent
-    [store_openweathermap_task, store_openmeteo_task] >> copy_openweathermap
-    [store_openweathermap_task, store_openmeteo_task] >> copy_openmeteo
-    [store_openweathermap_task, store_openmeteo_task] >> copy_spark_stream
-    [store_openweathermap_task, store_openmeteo_task] >> copy_predict
-
-    # Une fois que toutes les copies sont effectuées, on passe à spark_submit
-    [copy_openweathermap, copy_openmeteo, copy_spark_stream,copy_predict] >> spark_predict_task
+    [store_openweathermap_task, store_openmeteo_task] >> spark_predict_task
     spark_predict_task >> spark_submit_task

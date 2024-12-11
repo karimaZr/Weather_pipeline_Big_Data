@@ -34,8 +34,7 @@ cities = [
 ]
 
 # Liste des variables à prévoir
-variables = ["humidity", "pressure", "sea_level","temp", 
-             "visibility", "wind_speed"]
+variables = ["humidity", "pressure", "sea_level","temp", "visibility", "wind_speed"]
              
 # Training and saving models
 for city_name in cities:
@@ -75,6 +74,6 @@ for city_name in cities:
 
         # Save model
         if best_model:
-            model_path = f"{model_dir}/{city_name}_{var}_{model_name}.pkl"
+            model_path = f"{model_dir}/{city_name}{var}{model_name}.pkl"
             joblib.dump(best_model, model_path)
             print(f"Saved {model_name} for {city_name}, {var}")
