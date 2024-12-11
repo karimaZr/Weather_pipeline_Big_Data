@@ -13,6 +13,9 @@ from pathlib import Path
 import pandas as pd
 from pathlib import Path
 import os
+from kafka.admin import KafkaAdminClient, NewTopic
+from airflow.providers.docker.operators.docker import DockerOperator
+from cassandra.cluster import Cluster
 from airflow.operators.bash import BashOperator
 
 # Arguments par défaut pour le DAG
@@ -220,6 +223,48 @@ cities =[
         "longitude": -13.162
     }
 ]
+
+
+def store_data_forprediction():
+    file_path = "/opt/airflow/data/weather_data.csv"
+    keyspace="spark_streaming"
+    table_name="weather_data"
+    
+    try:
+        # Step 1: Check if the file exists
+        if os.path.exists(file_path):
+            print(f"File '{file_path}' exists. Deleting it...")
+            os.remove(file_path)
+            print(f"Deleted existing file '{file_path}'.")
+        
+        # Step 2: Connect to Cassandra
+        print("Connecting to Cassandra...")
+        cluster = Cluster(['cassandra_db'])
+        session = cluster.connect()
+        session.set_keyspace(keyspace)
+        print(f"Connected to keyspace '{keyspace}'.")
+        
+        # Step 3: Fetch the last 37 rows from the table
+        print(f"Fetching data from table '{table_name}'...")
+        query = f"SELECT * FROM {table_name} LIMIT 10000;"
+        rows = session.execute(query)
+        data = [row._asdict() for row in rows]
+        last_37_rows = data[-37:]  # Get the last 37 rows
+        
+        if not last_37_rows:
+            print("No data found in the table.")
+            return
+        
+        # Step 4: Save the data to the CSV file
+        print(f"Saving data to '{file_path}'...")
+        df = pd.DataFrame(last_37_rows)
+        df.to_csv(file_path, index=False)
+        print(f"Data successfully saved to '{file_path}'.")
+    
+    except Exception as e:
+        print(f"Error: {e}")
+
+
 def delete_kafka_topic(topic_name):
     """Delete and recreate a Kafka topic."""
     try:
@@ -237,6 +282,7 @@ def delete_kafka_topic(topic_name):
 
     except Exception as e:
         print(f"Error resetting topic '{topic_name}': {e}")
+
 
 def fetch_openweathermap_data(city):
     """Récupère les données depuis OpenWeatherMap API pour une ville donnée et les envoie dans Kafka."""
@@ -377,30 +423,12 @@ def store_openmeteo_data():
     """Reads from Open-Meteo Kafka topic and stores data in a Parquet file, adding city name."""
     read_from_kafka_and_store(KAFKA_TOPIC_OPENMETEO, "openmeteo_data.parquet", add_city_name=True)
 
-def extract_data():
-    from cassandra.cluster import Cluster
-    import pandas as pd
-
-    # Connect to Cassandra and query the weather data
-    cluster = Cluster(['cassandra_db'])  # Replace with actual Cassandra host
-    session = cluster.connect('spark_streaming')  # Replace with actual keyspace
-    query = "SELECT * FROM weather_data"
-    rows = session.execute(query)
-
-    # Convert the result into a DataFrame
-    data = pd.DataFrame(rows)
-    
-    # Save data to CSV file
-    output_file = '/opt/airflow/data/weather_data.csv'
-    data.to_csv(output_file, index=False)
-    print(f"Data extracted and saved to {output_file}")
-
 
 # Création du DAG dans Airflow
 with DAG(
     'weather_data_kafka_dag',
     default_args=default_args,
-    schedule_interval='@daily',  # Exécution chaque heure
+    schedule_interval='*/10 * * * *',  
     catchup=False
 ) as dag:
 
@@ -412,6 +440,12 @@ with DAG(
     store_openweathermap_task = PythonOperator(
         task_id='store_openweathermap_data',
         python_callable=store_openweathermap_data
+    )
+    store_dataofpredict_task = PythonOperator(
+        task_id='store_dataofpredict_data',
+        python_callable=store_data_forprediction
+        
+        
     )
     store_openmeteo_task = PythonOperator(
         task_id='store_openmeteo_data',
@@ -435,6 +469,11 @@ with DAG(
         bash_command='docker cp /opt/airflow/data/spark_stream.py spark-master:/spark_stream.py'
     )
 
+    copy_predict = BashOperator(
+        task_id='copy_predict',
+        bash_command='docker cp /opt/airflow/data/predict.py spark-master:/predict.py'
+    )
+
     # Run spark-submit
    
     spark_submit_task = BashOperator(
@@ -445,20 +484,26 @@ with DAG(
             '--py-files /dependencies.zip /spark_stream.py'
         ),
     )
-    extract_data_task = PythonOperator(
-    task_id='extract_data_task',
-    python_callable=extract_data,
-    dag=dag,
-)
+
+    spark_predict_task = BashOperator(
+        task_id='spark_predict',
+        bash_command=(
+            'docker exec  spark-master spark-submit '
+            '--packages com.datastax.spark:spark-cassandra-connector_2.12:3.5.1 '
+            '--py-files /dependencies.zip /predict.py'
+        ),
+    )
 
     # Exécution de la tâche
-    streaming_task >> [store_openweathermap_task, store_openmeteo_task]
 
+    streaming_task >> store_data_forprediction_task
+    store_data_forprediction_task >> [store_openweathermap_task, store_openmeteo_task]
     # Chaque tâche de la première liste se termine avant que les tâches de la seconde liste commencent
     [store_openweathermap_task, store_openmeteo_task] >> copy_openweathermap
     [store_openweathermap_task, store_openmeteo_task] >> copy_openmeteo
     [store_openweathermap_task, store_openmeteo_task] >> copy_spark_stream
+    [store_openweathermap_task, store_openmeteo_task] >> copy_predict
 
     # Une fois que toutes les copies sont effectuées, on passe à spark_submit
-    [copy_openweathermap, copy_openmeteo, copy_spark_stream] >> spark_submit_task
-    spark_submit_task >> extract_data_task
+    [copy_openweathermap, copy_openmeteo, copy_spark_stream,copy_predict] >> spark_predict_task
+    spark_predict_task >> spark_submit_task

@@ -20,7 +20,9 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/script/entrypoint.sh:/opt/airflow/script/entrypoint.sh
     - ${AIRFLOW_PROJ_DIR:-.}/requirements.txt:/opt/airflow/requirements.txt
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/data:/opt/airflow/data
-    - ${AIRFLOW_PROJ_DIR:-.}/shared/airflow_spark_dependencies:/dependencies
+    - ${AIRFLOW_PROJ_DIR:-.}/airflow/data/spark_stream.py:/opt/airflow/data/spark_stream.py
+    - /var/run/docker.sock:/var/run/docker.sock
+
   user: "${AIRFLOW_UID:-50000}:0"
 
   depends_on:
@@ -239,31 +241,6 @@ services:
     networks:
       - streamsnet
 
-  spark-master:
-    image: bitnami/spark:3.5.1
-    container_name: spark-master
-    volumes:
-      - ./shared/airflow_spark_dependencies:/dependencies
-    command: bin/spark-class org.apache.spark.deploy.master.Master
-    ports:
-      - "9090:8080"
-      - "7077:7077"
-    networks:
-      - streamsnet
-  spark-worker:
-    image: bitnami/spark:3.5.1
-    volumes:
-      - ./shared/airflow_spark_dependencies:/dependencies
-    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-    depends_on:
-      - spark-master
-    environment:
-      SPARK_MODE: worker
-      SPARK_WORKER_CORES: 2
-      SPARK_WORKER_MEMORY: 1g
-      SPARK_MASTER_URL: spark://spark-master:7077
-    networks:
-      - streamsnet
   streamlit:
     image: python:3.9-slim
     container_name: streamlit
@@ -272,22 +249,38 @@ services:
     working_dir: /app
     volumes:
       - ./streamlit:/app
-      - ./airflow/data:/opt/airflow/data
-      
     command: bash -c "pip install -r requirements.txt && streamlit run app.py"
     networks:
       - streamsnet
-  hbase:
-    image: dajobe/hbase
-    container_name: hbase
+  
+  spark-master:
+    image: bitnami/spark:3.5.1
+    container_name: spark-master
+    command: bin/spark-class org.apache.spark.deploy.master.Master
     ports:
-      - "16010:16010"
-    depends_on:
-      zookeeper:
-        condition: service_healthy
+      - "9090:8080"
+      - "7077:7077"
+    volumes:
+      - ./jars:/opt/spark/jars
+      - ./config:/opt/spark/conf
     networks:
       - streamsnet
-
+  spark-worker:
+    image: bitnami/spark:3.5.1
+    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    depends_on:
+      - spark-master
+    environment:
+      SPARK_MODE: worker
+      SPARK_WORKER_CORES: 2
+      SPARK_WORKER_MEMORY: 1g
+      SPARK_MASTER_URL: spark://spark-master:7077
+    volumes:
+      - ./streamlit:/app
+      - ${AIRFLOW_PROJ_DIR:-.}/airflow/data:/opt/airflow/data
+    networks:
+      - streamsnet
+  
   cassandra_db:
     image: cassandra:4.0.13
     container_name: cassandra
